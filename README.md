@@ -1,4 +1,4 @@
-#Codeclan Student Dashboard:
+# Codeclan Student Dashboard:
 
 To create intranet dashboard for Codeclan students.
 A place for students to access daily and weekly information - what the syllabus is for the week ahead, to be able to view the plan for future weeks and to see at a glance what events are happening internally that week.
