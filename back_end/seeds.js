@@ -83,7 +83,7 @@ db.syllabus.insert({
 
 db.syllabus.insert({
   week_number: 4,
-  week_title: "Ruby",
+  week_title: "Sinatra",
   language: "Ruby",
   days: [
     {
