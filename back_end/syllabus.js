@@ -24,7 +24,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Homework - Pet shop"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -51,7 +51,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Homework - Codeclan Caraoke"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -78,7 +78,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Homework - Codeclan Cinema"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -105,7 +105,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Projects!"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -132,7 +132,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Weekend homework"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -159,7 +159,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Weekend homework - Music shop"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -186,7 +186,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Project time!"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -213,7 +213,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Review"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -240,7 +240,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["PDA Test", "CV Reviews", "Mock Interviews"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -254,7 +254,7 @@ db.syllabus.insert({
      },
      {
      number: 2,
-     content: ["Objects and Constructor Functions", "Prototypal Inheritance", "Water Bottle TDD". "OO Bank"]
+     content: ["Objects and Constructor Functions", "Prototypal Inheritance", "Water Bottle TDD", "OO Bank"]
      },
      {
      number: 3,
@@ -267,7 +267,7 @@ db.syllabus.insert({
      {
      number: 5,
      content: ["NPM recap"]
-     }
+   }]
  });
 
 db.syllabus.insert({
@@ -281,7 +281,7 @@ db.syllabus.insert({
     },
     {
     number: 2,
-    content: ["Event Listeners", "Local storage", "Todo app Lab". "Google Maps intro"s]
+    content: ["Event Listeners", "Local storage", "Todo app Lab", "Google Maps intro"]
     },
     {
     number: 3,
@@ -294,7 +294,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["PDA lesson"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -321,7 +321,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Group Projects"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -348,7 +348,7 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Speed Networking"]
-    }
+  }]
 });
 
 db.syllabus.insert({
@@ -375,5 +375,5 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Mock Interviews"]
-    }
+  }]
 });
