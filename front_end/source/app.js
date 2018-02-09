@@ -9,12 +9,8 @@ const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const test = function(returned_info){
   var select = document.querySelector('.Mon1');
   returned_info.forEach(function(week){
-    if (week.week_number== 1){
-      week.days.forEach(function(day){
-        if (day.number==1){
-          select.innerText = day.content;
-        }
-      })
+    if (week.week_number== 2){
+      select.innerText = week.day2;
     }
   })
   returned_info.week_
