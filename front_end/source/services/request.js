@@ -9,9 +9,7 @@ Request.prototype.get = function(callback) {
     if(this.status!==200) {
       return;
     }
-
     const responseBody = JSON.parse(this.responseText);
-
     callback(responseBody);
   });
   request.send();
@@ -25,9 +23,7 @@ Request.prototype.post = function(callback, body) {
     if(this.status!==201) {
       return;
     }
-
     const responseBody = JSON.parse(this.responseText);
-
     callback(responseBody);
   });
   request.send(JSON.stringify(body));
@@ -40,7 +36,6 @@ Request.prototype.delete = function(callback) {
     if(this.status!==204) {
       return;
     }
-
     callback();
   });
   request.send();
