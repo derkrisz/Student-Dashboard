@@ -1,6 +1,11 @@
 
 .item1 { grid-area: header; }
 .item2 { grid-area: menu; }
+.item41 { grid-area: mon; }
+.item42 { grid-area: tue; }
+.item43 { grid-area: wed; }
+.item44 { grid-area: thu; }
+.item45 { grid-area: fri; }
 .item4 { grid-area: right; }
 .item5 { grid-area: footer; }
 .item6 { grid-area: e17; }
@@ -14,13 +19,14 @@
   display: grid;
   grid-column-gap: 20px;
   grid-template-columns: 50px auto auto auto auto auto auto 50px;
-  grid-template-areas: 'header header header header header header header header'
+  grid-template-areas:
+  'header header header header header header header header'
   'menu e17 e17 e18 e18 e19 e19 right'
-  'menu e17Data e17Data e18Data e18Data e19Data e19Data right'
-  'menu e17Data e17Data e18Data e18Data e19Data e19Data right'
-  'menu e17Data e17Data e18Data e18Data e19Data e19Data right'
-  'menu e17Data e17Data e18Data e18Data e19Data e19Data right'
-  'menu e17Data e17Data e18Data e18Data e19Data e19Data right'
+  'mon e17Data e17Data e18Data e18Data e19Data e19Data right'
+  'tue e17Data e17Data e18Data e18Data e19Data e19Data right'
+  'wed e17Data e17Data e18Data e18Data e19Data e19Data right'
+  'thu e17Data e17Data e18Data e18Data e19Data e19Data right'
+  'fri e17Data e17Data e18Data e18Data e19Data e19Data right'
   'footer footer footer footer footer footer footer footer';
   background-color: #2196F3;
   padding: 30px;
@@ -28,7 +34,7 @@
 .grid-container > div {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  padding: 10px;
   font-size: 30px;
   text-align: center;
 }
