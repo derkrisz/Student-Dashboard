@@ -1,19 +1,31 @@
 
 .item1 { grid-area: header; }
 .item2 { grid-area: menu; }
-.item41 { grid-area: mon; }
-.item42 { grid-area: tue; }
-.item43 { grid-area: wed; }
-.item44 { grid-area: thu; }
-.item45 { grid-area: fri; }
+.item21 { grid-area: mon; }
+.item22 { grid-area: tue; }
+.item23 { grid-area: wed; }
+.item24 { grid-area: thu; }
+.item25 { grid-area: fri; }
 .item4 { grid-area: right; }
 .item5 { grid-area: footer; }
 .item6 { grid-area: e17; }
 .item7 { grid-area: e18; }
 .item8 { grid-area: e19; }
-.item9 { grid-area: e17Data; }
-.item10 { grid-area: e18Data; }
-.item11 { grid-area: e19Data; }
+.Mon1 { grid-area: Mon1; }
+.Mon2 { grid-area: Mon2; }
+.Mon3 { grid-area: Mon3; }
+.Tue1 { grid-area: Tue1; }
+.Tue2 { grid-area: Tue2; }
+.Tue3 { grid-area: Tue3; }
+.Wed1 { grid-area: Wed1; }
+.Wed2 { grid-area: Wed2; }
+.Wed3 { grid-area: Wed3; }
+.Thu1 { grid-area: Thu1; }
+.Thu2 { grid-area: Thu2; }
+.Thu3 { grid-area: Thu3; }
+.Fri1 { grid-area: Fri1; }
+.Fri2 { grid-area: Fri2; }
+.Fri3 { grid-area: Fri3; }
 
 .grid-container {
   display: grid;
@@ -22,11 +34,11 @@
   grid-template-areas:
   'header header header header header header header header'
   'menu e17 e17 e18 e18 e19 e19 right'
-  'mon e17Data e17Data e18Data e18Data e19Data e19Data right'
-  'tue e17Data e17Data e18Data e18Data e19Data e19Data right'
-  'wed e17Data e17Data e18Data e18Data e19Data e19Data right'
-  'thu e17Data e17Data e18Data e18Data e19Data e19Data right'
-  'fri e17Data e17Data e18Data e18Data e19Data e19Data right'
+  'mon Mon1 Mon1 Mon2 Mon2 Mon3 Mon3 right'
+  'tue Tue1 Tue1 Tue2 Tue2 Tue3 Tue3 right'
+  'wed Wed1 Wed1 Wed2 Wed2 Wed3 Wed3 right'
+  'thu Thu1 Thu1 Thu2 Thu2 Thu3 Thu3 right'
+  'fri Fri1 Fri1 Fri2 Fri2 Fri3 Fri3 right'
   'footer footer footer footer footer footer footer footer';
   background-color: #2196F3;
   padding: 30px;
