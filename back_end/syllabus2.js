@@ -233,187 +233,75 @@ db.syllabus.insert({
   week_number: 10,
   week_title: "CS",
   language: "CS and CV",
-  days: [
-    {
-    number: 1,
-    content: ["Algorithms", "CV/PDA", "IT Industry Landscape", "CV/BIO workshop"]
-    },
-    {
-    number: 2,
-    content: ["Data Structures", "Brand of ME"]
-    },
-    {
-    number: 3,
-    content: ["TEchnical Testing and CV's", "Parallel Programming"]
-    },
-    {
-    number: 4,
-    content: ["Interview Skills Workshop"]
-    },
-    {
-    number: 5,
-    content: ["PDA Test", "CV Reviews", "Mock Interviews"]
-  }]
+  day1: "Algorithms \n CV/PDA \n IT Industry Landscape \n CV/BIO workshop",
+  day2: "Data Structures \n Brand of ME",
+  day3: "Technical Testing and CV's \n Parallel Programming",
+  day4: "Interview Skills Workshop",
+  day5: "PDA Test \n CV Reviews \n Mock Interviews"
 });
 
 db.syllabus.insert({
   week_number: 11,
   week_title: "JS Foundations",
   language: "JavaScript",
-  days: [
-     {
-     number: 1,
-     content: ["JS Intro - Fundamentals", "Functions, Scope, Let & Const"]
-     },
-     {
-     number: 2,
-     content: ["Objects and Constructor Functions", "Prototypal Inheritance", "Water Bottle TDD", "OO Bank"]
-     },
-     {
-     number: 3,
-     content: ["Intro to callbacks", "Enumeration"]
-     },
-     {
-     number: 4,
-     content: ["This", "Lodash", "Closures"]
-     },
-     {
-     number: 5,
-     content: ["NPM recap"]
-   }]
+  day1: "JS Intro - Fundamentals \n Functions, Scope, Let & Const",
+  day2: "Objects and Constructor Functions \n Prototypal Inheritance \n Water Bottle TDD \n OO Bank",
+  day3: "Intro to callbacks \n Enumeration",
+  day5: "NPM recap"
  });
 
 db.syllabus.insert({
   week_number: 12,
   week_title: "JS in the Browser",
   language: "JavaScript",
-  days: [
-    {
-    number: 1,
-    content: ["Browser JS intro", "DOM review", "Reading the DOM", "Writing the DOM"]
-    },
-    {
-    number: 2,
-    content: ["Event Listeners", "Local storage", "Todo app Lab", "Google Maps intro"]
-    },
-    {
-    number: 3,
-    content: ["JS Requests", "Git Branching", "Countries pair lab"]
-    },
-    {
-    number: 4,
-    content: ["Canvas", "Charts"]
-    },
-    {
-    number: 5,
-    content: ["PDA lesson"]
-  }]
+  day1: "Browser JS intro \n DOM review \n Reading the DOM \n Writing the DOM",
+  day2: "Event Listeners \n Local storage \n Todo app Lab \n Google Maps intro",
+  day3: "JS Requests \n Git Branching \n Countries pair lab",
+  day4: "Canvas \n Charts",
+  day5: "PDA lesson"
 });
 
 db.syllabus.insert({
   week_number: 13,
   week_title: "JS Full-stack",
   language: "JavaScript",
-  days: [
-    {
-    number: 1,
-    content: ["Intro to Express", "Express REST", "Webpack"]
-    },
-    {
-    number: 2,
-    content: ["Intro to Mongo", "Serve up API from DB"]
-    },
-    {
-    number: 3,
-    content: ["Event Loop Video", "Practical GitHub", "Bucket List all day Lab"]
-    },
-    {
-    number: 4,
-    content: ["What is Scrum?", "Hand out Group Projects"]
-    },
-    {
-    number: 5,
-    content: ["Group Projects"]
-  }]
+  day1: "Intro to Express \n Express REST \n Webpack",
+  day2: "Intro to Mongo \n Serve up API from DB",
+  day3: "Event Loop Video \n Practical GitHub \n Bucket List all day Lab",
+  day4: "What is Scrum? \n Hand out Group Projects",
+  day5: "Group Projects"
 });
 
 db.syllabus.insert({
   week_number: 14,
   week_title: "Group Project",
   language: "Group Project",
-  days: [
-    {
-    number: 1,
-    content: ["Group Project"]
-    },
-    {
-    number: 2,
-    content: ["Group Project"]
-    },
-    {
-    number: 3,
-    content: ["Group Project"]
-    },
-    {
-    number: 4,
-    content: ["PRESENTATIONS"]
-    },
-    {
-    number: 5,
-    content: ["Speed Networking"]
-  }]
+  day1: "Group Project",
+  day2: "Group Project",
+  day3: "Group Project",
+  day4: "PRESENTATIONS",
+  day5: "Speed Networking"
 });
 
 db.syllabus.insert({
   week_number: 15,
   week_title: "React",
   language: "React",
-  days: [
-    {
-    number: 1,
-    content: ["ES6 intro", "Frameworks Introduction", "React Intro, React Hello World, React Piggy Bank", "React Comments"]
-    },
-    {
-    number: 2,
-    content: ["Add a form to React comments", "React Lifecycle", "React countries", "API pair lab"]
-    },
-    {
-    number: 3,
-    content: ["Quiz", "Tic Tac Toe all day lab"]
-    },
-    {
-    number: 4,
-    content: ["React Router", "Socket.io", "Socket lab"]
-    },
-    {
-    number: 5,
-    content: ["Mock Interviews"]
-  }]
+  day1: "ES6 intro \n Frameworks Introduction \n React Intro, React Hello World, React Piggy Bank \n React Comments",
+  day2: "Add a form to React comments \n React Lifecycle \n React countries \n API pair lab",
+  day3: "Quiz \n Tic Tac Toe all day lab",
+  day4: "React Router \n Socket.io \n Socket lab",
+  day5: "Mock Interviews"
+
 });
 
 db.syllabus.insert({
   week_number: 16,
   week_title: "Final Project",
   language: "Free Choice",
-  days: [
-    {
-    number: 1,
-    content: ["Project"]
-    },
-    {
-    number: 2,
-    content: ["Project"]
-    },
-    {
-    number: 3,
-    content: ["Project"]
-    },
-    {
-    number: 4,
-    content: ["Project"]
-    },
-    {
-    number: 5,
-    content: ["PRESENTATIONS"]
-  }]
+  day1: "Project",
+  day2: "Project",
+  day3: "Project",
+  day4: "Project",
+  day5: "GRADUATION"
 });
