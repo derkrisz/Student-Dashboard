@@ -15,8 +15,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     return;
   }
 
-  const db = client.db("codeclan_dashboard");
-
+const db = client.db("codeclan_dashboard");
 
   server.get('/api/syllabus', function(req, res){
     db.collection('syllabus').find().toArray(function(err, results){

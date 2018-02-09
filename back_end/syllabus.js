@@ -1,5 +1,7 @@
 use codeclan_dashboard;
 
+db.dropDatabase();
+
 db.syllabus.insert({
   week_number: 1,
   week_title: "Intro to programming",
@@ -7,7 +9,7 @@ db.syllabus.insert({
   days: [
     {
     number: 1,
-    content: ["Induction", "Intro to course structure", "Classroom culture", "Unix basics", "Git"]
+    content: "Induction \n Intro to course structure \n Classroom culture \n Unix basics \n Git"
     },
     {
     number: 2,
@@ -109,6 +111,33 @@ db.syllabus.insert({
 });
 
 db.syllabus.insert({
+  week_number: 5,
+  week_title: "Ruby Project",
+  language: "Ruby",
+  days: [
+    {
+    number: 1,
+    content: ["Project"]
+    },
+    {
+    number: 2,
+    content: ["Project"]
+    },
+    {
+    number: 3,
+    content: ["Project"]
+    },
+    {
+    number: 4,
+    content: ["Project"]
+    },
+    {
+    number: 5,
+    content: ["PRESENTATIONS"]
+  }]
+});
+
+db.syllabus.insert({
   week_number: 6,
   week_title: "Java",
   language: "Java",
@@ -191,7 +220,7 @@ db.syllabus.insert({
 
 db.syllabus.insert({
   week_number: 9,
-  week_title: "Java/A ndroidProject",
+  week_title: "Java/AndroidProject",
   language: "Project Week",
   days: [
     {
@@ -208,11 +237,11 @@ db.syllabus.insert({
     },
     {
     number: 4,
-    content: ["PRESENTATIONS"]
+    content: ["Project"]
     },
     {
     number: 5,
-    content: ["Review"]
+    content: ["PRESENTATIONS"]
   }]
 });
 
@@ -375,5 +404,32 @@ db.syllabus.insert({
     {
     number: 5,
     content: ["Mock Interviews"]
+  }]
+});
+
+db.syllabus.insert({
+  week_number: 16,
+  week_title: "Final Project",
+  language: "Free Choice",
+  days: [
+    {
+    number: 1,
+    content: ["Project"]
+    },
+    {
+    number: 2,
+    content: ["Project"]
+    },
+    {
+    number: 3,
+    content: ["Project"]
+    },
+    {
+    number: 4,
+    content: ["Project"]
+    },
+    {
+    number: 5,
+    content: ["PRESENTATIONS"]
   }]
 });
