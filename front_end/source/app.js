@@ -1,9 +1,7 @@
 const syllabusView = require('./views/syllabus_view');
 const Request = require('./services/request');
 // syllabusView = new SyllabusView()
-
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
-
 
 
 const test = function(returned_info){
