@@ -25,7 +25,7 @@ const db = client.db("codeclan_dashboard");
         res.send();
       }
       res.json(results);
-      console.log("Sillybus successs");
+      console.log("API call success");
     })
   });
 

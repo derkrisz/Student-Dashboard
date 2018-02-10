@@ -26,6 +26,7 @@ const app = function() {
   const closeSyllabusClicked = document.querySelector("#close_popup");
   closeSyllabusClicked.addEventListener('click', closePopup);
 
+  
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
 
