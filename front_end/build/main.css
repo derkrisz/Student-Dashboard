@@ -1,5 +1,6 @@
 
 .item1 { grid-area: header; }
+.title {grid-area: title; }
 .weather { grid-area: weather; }
 .item2 { grid-area: menu; }
 .item21 { grid-area: mon; }
@@ -31,9 +32,9 @@
 .grid-container {
   display: grid;
   grid-column-gap: 20px;
-  grid-template-columns: 50px auto auto auto auto auto auto 50px;
+  grid-template-columns: 50px 12.6% 12.6% 12.6% 12.6% 12.6% 12.6% 50px;
   grid-template-areas:
-  'header header header header header weather weather weather'
+  'header header title title title weather weather weather'
   'menu e17 e17 e18 e18 e19 e19 right'
   'mon Mon1 Mon1 Mon2 Mon2 Mon3 Mon3 right'
   'tue Tue1 Tue1 Tue2 Tue2 Tue3 Tue3 right'
@@ -41,13 +42,61 @@
   'thu Thu1 Thu1 Thu2 Thu2 Thu3 Thu3 right'
   'fri Fri1 Fri1 Fri2 Fri2 Fri3 Fri3 right'
   'footer footer footer footer footer footer footer footer';
-  background-color: #2196F3;
+  /* background-color: #2196F3; */
+  background-color: #ffffff;
   padding: 30px;
 }
+
+img {
+  width: 200px;
+}
+#title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  /* color: 	#0B70B8; */
+  color: #2EA8E1;
+}
+
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  background-color: #ffffff;
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
   padding: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.item1 , .weather , .title{
+  margin-bottom: 20px;
+}
+
+.item5 {
+  margin-top: 20px;
+}
+
+#weekday {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  /* color: 	#0B70B8; */
+  color: #2EA8E1;
+}
+
+#cohorts {
+  font-family: 'Oswald', sans-serif;
   font-size: 30px;
+  text-align: center;
+  color: 	#0B70B8;
+  /* color: #2EA8E1; */
+}
+
+.grid-container > #boards {
+  background-color: rgba(34, 34, 34, 1);
+  font-family: 'Permanent Marker', cursive;
+  color: rgba(238, 238, 238, 0.7);
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  padding: 10px;
+  font-size: 25px;
   text-align: center;
 }
