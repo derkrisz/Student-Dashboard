@@ -30,9 +30,6 @@ const app = function() {
   syllabusRequest.get(allColumnsConstructed);
 
 
-  console.log("what is syllabusRequest", syllabusRequest);
-
-
 };
 
 const allColumnsConstructed = function(wholeSyllabus){
