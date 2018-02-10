@@ -34,7 +34,7 @@
   grid-column-gap: 20px;
   grid-template-columns: auto 12.6% 12.6% 12.6% 12.6% 12.6% 12.6% auto;
   grid-template-areas:
-  'header header title title title weather weather weather'
+  'header header title title title title weather weather'
   'menu e17 e17 e18 e18 e19 e19 right'
   'mon Mon1 Mon1 Mon2 Mon2 Mon3 Mon3 right'
   'tue Tue1 Tue1 Tue2 Tue2 Tue3 Tue3 right'
