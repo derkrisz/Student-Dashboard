@@ -1,7 +1,10 @@
 const syllabusView = require('./views/syllabus_view');
-const Request = require('./services/request');
 // syllabusView = new SyllabusView()
 
+const FullSyllabus = require('./views/full_syllabus_view')
+const fullSyllabus = new FullSyllabus();
+
+const Request = require('./services/request');
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 
 
@@ -33,10 +36,18 @@ const app = function() {
   const closeSyllabusClicked = document.querySelector("#close_popup");
   closeSyllabusClicked.addEventListener('click', closePopup);
 
+  syllabusRequest.get(getFullSyllabusComplete)
+
   console.log("what is syllabusRequest", syllabusRequest);
 
   syllabusRequest.get(test);
   console.log('blah');
 };
+
+const getFullSyllabusComplete = function(allSyllabus){
+  allSyllabus.forEach(function(week){
+    fullSyllabus.render(week);
+  })
+}
 
 document.addEventListener("DOMContentLoaded", app);

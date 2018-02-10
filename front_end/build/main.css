@@ -133,17 +133,19 @@ button {
   top: 50%;
   margin-left: -400px;
   margin-top: -250px;
+  overflow-y:scroll;
+    /* z-index:10; */
 }
 
 #close_popup {
+  top: 5px;
+  right: 5px;
   position: absolute;
   width: 25px;
   height: 25px;
   border: 2px solid #2EA8E1;
   border-radius: 25px;
   text-align: center;
-  top: 5px;
-  right: 5px;
   cursor: pointer;
 }
 
@@ -155,11 +157,28 @@ button {
 
 #popup_title {
   font-family: 'Oswald', sans-serif;
-  font-size: 40px;
+  font-size: 20px;
+  width: 790px;
+  height: 80px;
   color: #0B70B8;
   text-align: center;
-  background-color:rgba(46, 168, 225, 0.5);
+  background-color:#9BD4EF;
   margin-top: 0px;
   padding: 5px;
   border-bottom: 2px solid #2EA8E1;
+  position: fixed;
+}
+
+#full_list li {
+  font-family: 'Oswald', sans-serif;
+  color: #0B70B8;
+  margin-top: 15px;
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #2EA8E1;
+  width: 200px;
+  margin-right: 15px;
+  margin-right: 15px;
 }
