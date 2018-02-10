@@ -1,23 +1,13 @@
 const syllabusView = require('./views/syllabus_view');
 // syllabusView = new SyllabusView()
-
 const FullSyllabus = require('./views/full_syllabus_view')
 const fullSyllabus = new FullSyllabus();
-
 const Request = require('./services/request');
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
+const ColumnConstruct = require('./models/columns.js')
+const columnConstruct = new ColumnConstruct();
 
 
-
-const test = function(returned_info){
-  var select = document.querySelector('.Mon1');
-  returned_info.forEach(function(week){
-    if (week.week_number == 2){
-      select.innerText = week.day2;
-    }
-  })
-  returned_info.week_
-};
 
 const syllabusButtonClicked = function(){
   console.log("button clicked");
@@ -36,18 +26,28 @@ const app = function() {
   const closeSyllabusClicked = document.querySelector("#close_popup");
   closeSyllabusClicked.addEventListener('click', closePopup);
 
-  syllabusRequest.get(getFullSyllabusComplete)
+  syllabusRequest.get(getFullSyllabusComplete);
+  syllabusRequest.get(allColumnsConstructed);
+
 
   console.log("what is syllabusRequest", syllabusRequest);
 
-  syllabusRequest.get(test);
-  console.log('blah');
+
+};
+
+const allColumnsConstructed = function(wholeSyllabus){
+  var cohort1week = 13;
+  columnConstruct.renderColumn1(cohort1week, wholeSyllabus);
+  var cohort2week = 10;
+  columnConstruct.renderColumn2(cohort2week, wholeSyllabus);
+  var cohort3week = 2;
+  columnConstruct.renderColumn3(cohort3week, wholeSyllabus);
 };
 
 const getFullSyllabusComplete = function(allSyllabus){
   allSyllabus.forEach(function(week){
     fullSyllabus.render(week);
   })
-}
+};
 
 document.addEventListener("DOMContentLoaded", app);
