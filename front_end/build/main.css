@@ -1,5 +1,6 @@
 
 .item1 { grid-area: header; }
+.weather { grid-area: weather; }
 .item2 { grid-area: menu; }
 .item21 { grid-area: mon; }
 .item22 { grid-area: tue; }
@@ -32,7 +33,7 @@
   grid-column-gap: 20px;
   grid-template-columns: 50px auto auto auto auto auto auto 50px;
   grid-template-areas:
-  'header header header header header header header header'
+  'header header header header header weather weather weather'
   'menu e17 e17 e18 e18 e19 e19 right'
   'mon Mon1 Mon1 Mon2 Mon2 Mon3 Mon3 right'
   'tue Tue1 Tue1 Tue2 Tue2 Tue3 Tue3 right'
