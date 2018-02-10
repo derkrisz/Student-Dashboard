@@ -16,7 +16,24 @@ const test = function(returned_info){
   returned_info.week_
 };
 
+const syllabusButtonClicked = function(){
+  console.log("button clisked");
+  var popupDiv = document.querySelector("#popup_bg");
+  popupDiv.style.display = 'block';
+}
+
+const closePopup = function(){
+  var popupDiv = document.querySelector("#popup_bg");
+  popupDiv.style.display = 'none';
+}
+
 const app = function() {
+  const syllabusButton = document.querySelector('#full-details');
+  syllabusButton.addEventListener('click', syllabusButtonClicked);
+  const closeSyllabusClicked = document.querySelector("#close-popup");
+  console.log("what is closeSyllabusButton", closeSyllabusClicked);
+  // closeSyllabusClicked.addEventListener('click', closePopup);
+
   console.log("what is syllabusRequest", syllabusRequest);
 
   syllabusRequest.get(test);
