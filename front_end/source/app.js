@@ -9,7 +9,7 @@ const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const test = function(returned_info){
   var select = document.querySelector('.Mon1');
   returned_info.forEach(function(week){
-    if (week.week_number== 2){
+    if (week.week_number == 2){
       select.innerText = week.day2;
     }
   })
@@ -17,7 +17,7 @@ const test = function(returned_info){
 };
 
 const syllabusButtonClicked = function(){
-  console.log("button clisked");
+  console.log("button clicked");
   var popupDiv = document.querySelector("#popup_bg");
   popupDiv.style.display = 'block';
 }
@@ -30,9 +30,8 @@ const closePopup = function(){
 const app = function() {
   const syllabusButton = document.querySelector('#full-details');
   syllabusButton.addEventListener('click', syllabusButtonClicked);
-  const closeSyllabusClicked = document.querySelector("#close-popup");
-  console.log("what is closeSyllabusButton", closeSyllabusClicked);
-  // closeSyllabusClicked.addEventListener('click', closePopup);
+  const closeSyllabusClicked = document.querySelector("#close_popup");
+  closeSyllabusClicked.addEventListener('click', closePopup);
 
   console.log("what is syllabusRequest", syllabusRequest);
 
