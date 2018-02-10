@@ -1,5 +1,5 @@
 
-const columnConstruct = function(){
+const ColumnConstruct = function(){
 
 
   var column1 = function(){
@@ -51,4 +51,4 @@ const columnConstruct = function(){
 
 }
 
-module.exports = columnConstruct;
+module.exports = ColumnConstruct;
