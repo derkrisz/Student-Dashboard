@@ -26,7 +26,8 @@ const app = function() {
   syllabusButton.addEventListener('click', syllabusButtonClicked);
   const closeSyllabusClicked = document.querySelector("#close_popup");
   closeSyllabusClicked.addEventListener('click', closePopup);
-  dateView.displayDate();
+
+  dateView.dynamicDate();
 
 
   syllabusRequest.get(getFullSyllabusComplete);

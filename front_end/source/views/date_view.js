@@ -8,4 +8,8 @@ DateView.prototype.displayDate = function () {
   dateField.innerText = date;
 };
 
+DateView.prototype.dynamicDate = function () {
+  setInterval(this.displayDate, 1000);
+};
+
 module.exports = DateView;
