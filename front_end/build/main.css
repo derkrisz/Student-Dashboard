@@ -2,6 +2,8 @@
 .item1 { grid-area: header; }
 .title {grid-area: title; }
 .weather { grid-area: weather; }
+.date {grid-area: date;}
+.nav_bar { grid-area: nav_bar;}
 .item2 { grid-area: menu; }
 .item21 { grid-area: mon; }
 .item22 { grid-area: tue; }
@@ -9,7 +11,6 @@
 .item24 { grid-area: thu; }
 .item25 { grid-area: fri; }
 .item4 { grid-area: right; }
-.item5 { grid-area: footer; }
 .item6 { grid-area: e17; }
 .item7 { grid-area: e18; }
 .item8 { grid-area: e19; }
@@ -28,6 +29,10 @@
 .Fri1 { grid-area: Fri1; }
 .Fri2 { grid-area: Fri2; }
 .Fri3 { grid-area: Fri3; }
+.techmeet { grid-area: techmeet; }
+.internalmeet { grid-area: internalmeet; }
+.techinfo { grid-area: techinfo; }
+.internalinfo { grid-area: internalinfo; }
 
 .grid-container {
   display: grid;
@@ -35,13 +40,15 @@
   grid-template-columns: auto 12.6% 12.6% 12.6% 12.6% 12.6% 12.6% auto;
   grid-template-areas:
   'header header title title title title weather weather'
+  'date date nav_bar nav_bar nav_bar nav_bar nav_bar nav_bar '
   'menu e17 e17 e18 e18 e19 e19 right'
   'mon Mon1 Mon1 Mon2 Mon2 Mon3 Mon3 right'
   'tue Tue1 Tue1 Tue2 Tue2 Tue3 Tue3 right'
   'wed Wed1 Wed1 Wed2 Wed2 Wed3 Wed3 right'
   'thu Thu1 Thu1 Thu2 Thu2 Thu3 Thu3 right'
   'fri Fri1 Fri1 Fri2 Fri2 Fri3 Fri3 right'
-  'footer footer footer footer footer footer footer footer';
+  'techmeet techmeet techmeet techmeet internalmeet internalmeet internalmeet internalmeet'
+  'techinfo techinfo techinfo techinfo internalinfo internalinfo internalinfo internalinfo';
   /* background-color: #2196F3; */
   background-color: #ffffff;
   padding: 30px;
@@ -56,6 +63,31 @@ img {
   text-align: center;
   /* color: 	#0B70B8; */
   color: #2EA8E1;
+}
+
+.techmeet {
+  margin-top: 10px;
+  border: 2px solid #2EA8E1;
+}
+
+.internalmeet {
+  margin-top: 10px;
+  border: 2px solid #2EA8E1;
+}
+
+.techinfo {
+  margin-top: 10px;
+  border: 2px solid #2EA8E1;
+}
+
+.internalinfo {
+  margin-top: 10px;
+  border: 2px solid #2EA8E1;
+}
+
+.nav_bar {
+  background-color: #2EA8E1;
+  border: 2px solid #2EA8E1;
 }
 
 .grid-container > div {
@@ -99,6 +131,7 @@ img {
   padding: 10px;
   font-size: 25px;
   text-align: center;
+  border-bottom: 2px dashed white;
 }
 
 .button {
