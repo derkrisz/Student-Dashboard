@@ -8,7 +8,6 @@ const ColumnConstruct = require('./models/columns.js')
 const columnConstruct = new ColumnConstruct();
 
 
-
 const syllabusButtonClicked = function(){
   console.log("button clicked");
   var popupDiv = document.querySelector("#popup_bg");
@@ -26,7 +25,7 @@ const app = function() {
   const closeSyllabusClicked = document.querySelector("#close_popup");
   closeSyllabusClicked.addEventListener('click', closePopup);
 
-  
+
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
 
