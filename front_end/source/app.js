@@ -6,7 +6,9 @@ const Request = require('./services/request');
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const ColumnConstruct = require('./models/columns.js')
 const columnConstruct = new ColumnConstruct();
-
+const DisplayEvents = require('./views/display_events_view.js')
+const externalEventsRequest = new Request('https://opentechcalendar.co.uk/api1/area/62/events.json');
+const displayEvents = new DisplayEvents();
 
 const syllabusButtonClicked = function(){
   console.log("button clicked");
@@ -19,6 +21,8 @@ const closePopup = function(){
   popupDiv.style.display = 'none';
 }
 
+
+
 const app = function() {
   const syllabusButton = document.querySelector('#full-details');
   syllabusButton.addEventListener('click', syllabusButtonClicked);
@@ -28,9 +32,9 @@ const app = function() {
 
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
-
-
+  externalEventsRequest.get(displayEventsTech);
 };
+
 
 const allColumnsConstructed = function(wholeSyllabus){
   var cohort1week = 13;
@@ -45,6 +49,15 @@ const getFullSyllabusComplete = function(allSyllabus){
   allSyllabus.forEach(function(week){
     fullSyllabus.render(week);
   })
+};
+
+
+const displayEventsTech = function(info){
+  console.log(info);
+  displayEvents.render(info);
+  console.log(info);
+  // var date =
+  // DisplayEvents.render(events, date)
 };
 
 document.addEventListener("DOMContentLoaded", app);
