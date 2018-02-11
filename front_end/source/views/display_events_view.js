@@ -7,17 +7,18 @@ DisplayEvents.prototype.render = function (info) {
 const target = document.querySelector('.techinfo');
 target.innerText = "";
 
+
   const ul = document.createElement('ul');
   const li1 = document.createElement('li');
   const li2 = document.createElement('li');
   const li3 = document.createElement('li');
   const li4 = document.createElement('li');
   const li5 = document.createElement('li');
-  li1.innerText = info.data[0].summaryDisplay;
-  li2.innerText = info.data[1].summaryDisplay;
-  li3.innerText = info.data[2].summaryDisplay;
-  li4.innerText = info.data[3].summaryDisplay;
-  li5.innerText = info.data[4].summaryDisplay;
+  li1.innerText = info.data[0].start.displaylocal + " " + info.data[0].summaryDisplay + "\n" + info.data[0].siteurl;
+  li2.innerText = info.data[1].start.displaylocal + " " + info.data[1].summaryDisplay + "\n" + info.data[1].siteurl;
+  li3.innerText = info.data[2].start.displaylocal + " " + info.data[2].summaryDisplay + "\n" + info.data[2].siteurl;
+  li4.innerText = info.data[3].start.displaylocal + " " + info.data[3].summaryDisplay + "\n" + info.data[3].siteurl;
+  li5.innerText = info.data[4].start.displaylocal + " " + info.data[4].summaryDisplay + "\n" + info.data[4].siteurl;
 
   ul.appendChild(li1);
   ul.appendChild(li2);
