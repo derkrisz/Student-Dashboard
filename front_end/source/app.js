@@ -6,6 +6,8 @@ const Request = require('./services/request');
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const ColumnConstruct = require('./models/columns.js')
 const columnConstruct = new ColumnConstruct();
+const DateView = require('./views/date_view');
+const dateView = new DateView();
 
 
 const syllabusButtonClicked = function(){
@@ -24,6 +26,7 @@ const app = function() {
   syllabusButton.addEventListener('click', syllabusButtonClicked);
   const closeSyllabusClicked = document.querySelector("#close_popup");
   closeSyllabusClicked.addEventListener('click', closePopup);
+  dateView.displayDate();
 
 
   syllabusRequest.get(getFullSyllabusComplete);
