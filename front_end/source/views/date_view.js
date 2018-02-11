@@ -3,9 +3,10 @@ const DateView = function() {
 }
 
 DateView.prototype.displayDate = function () {
-  const date = new Date();
+  const now = new Date();
   dateField = document.querySelector('#date');
-  dateField.innerText = date;
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+  dateField.innerText = now.toLocaleDateString('gb-GB', options);
 };
 
 DateView.prototype.dynamicDate = function () {
