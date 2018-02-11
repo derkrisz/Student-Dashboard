@@ -6,7 +6,8 @@ const Cohort = function(name, start_date, teachers){
   this.start_date = start_date;
   this.teachers = teachers;
   this.syllabus= "";
-  this.week = 0;
+  this.week = 1;
+  this.setNoOfWeeks();
 }
 
 Cohort.prototype.setNoOfWeeks = function(){
@@ -14,7 +15,7 @@ Cohort.prototype.setNoOfWeeks = function(){
   var startDate = this.start_date;
   var currentDate = new Date(); // can you use todays date here?
   var diffWeeks = Math.round(Math.abs((startDate.getTime() - currentDate.getTime())/(oneWeek)));
-  this.week += diffWeeks-1;
+  this.week += diffWeeks-2;
 }
 
 module.exports = Cohort;

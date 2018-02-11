@@ -14,8 +14,6 @@ beforeEach(function () {
 });
 
 it('should count the week numbers since starting', function() {
-  cohort1.setNoOfWeeks();
-  cohort2.setNoOfWeeks();
   assert.equal(cohort1.week, 14)
   assert.equal(cohort2.week, 11)
 });
