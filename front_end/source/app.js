@@ -4,7 +4,8 @@ const ColumnConstruct = require('./models/columns.js');
 const Request = require('./services/request');
 const MapWrapper = require('./services/mapWrapper.js');
 const DateView = require('./views/date_view');
-const DisplayEvents = require('./views/display_events_view.js')
+const DisplayEvents = require('./views/display_events_view.js');
+const Event = require('./models/event.js');
 
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const externalEventsRequest = new Request('http://localhost:3000/api/events');
@@ -12,7 +13,18 @@ const fullSyllabus = new FullSyllabus();
 const displayEvents = new DisplayEvents();
 const columnConstruct = new ColumnConstruct();
 const dateView = new DateView();
+;
 // syllabusView = new SyllabusView()
+
+const events1 = [];
+const event1start = new Date(2018, 1, 9, 12 , 0);
+const event1end = new Date(2018, 1, 9, 13 , 0);
+const event2start = new Date(2018, 1, 16, 10 , 0);
+const event2end = new Date(2018, 1, 16, 14 , 0);
+var event1 = new Event("Float", "Lunch Time Talk", 'https://floatapp.com/', "Emily", 'emily.milne@codeclan.com', event1start, event1end, "Fri");
+var event2 = new Event("E17", "Speed Networking", 'https://codeclan.com/', "Kim", 'kim.watson@codeclan.com', event2start, event2end, "Fri");
+events1.push(event1);
+events1.push(event2);
 
 
 const syllabusButtonClicked = function(){
@@ -35,8 +47,10 @@ const app = function() {
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
   externalEventsRequest.get(displayEventsTech);
-  mapInitialize();
+  // mapInitialize();
   dateView.dynamicDate();
+  displayEventsInternal(events1);
+
 
 };
 
@@ -58,6 +72,16 @@ const getFullSyllabusComplete = function(allSyllabus){
 const displayEventsTech = function(info){
   displayEvents.render(info);
 };
+
+const displayEventsInternal = function(events){
+  displayEvents.renderInternal(events);
+}
+
+
+
+
+
+
 
 const mapInitialize = function(){
   var mapDiv = document.querySelector('.internalinfo');

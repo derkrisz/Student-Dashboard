@@ -2,6 +2,52 @@ const DisplayEvents = function(){
 
 }
 
+DisplayEvents.prototype.renderInternal = function (events) {
+  console.log(events);
+  const target = document.querySelector('.internalinfo');
+  target.innerText = "";
+  var table = document.createElement('table');
+
+  var tabletitles =document.createElement('tr');
+
+  var tabletitle1 = document.createElement('th');
+  tabletitle1.innerText = "Day";
+  var tabletitle2 = document.createElement('th');
+  tabletitle2.innerText = "Event";
+  var tabletitle3 = document.createElement('th');
+  tabletitle3.innerText = "Organiser";
+  var tabletitle4 = document.createElement('th');
+  tabletitle4.innerText = "Time";
+
+  tabletitles.appendChild(tabletitle1);
+  tabletitles.appendChild(tabletitle2);
+  tabletitles.appendChild(tabletitle3);
+  tabletitles.appendChild(tabletitle4);
+  table.appendChild(tabletitles);
+
+
+  events.forEach(function(event){
+    console.log(events);
+    console.log(events[0]);
+    var tr = document.createElement('tr');
+    var td1 = document.createElement('td');
+    var td2 = document.createElement('td');
+    var td3 = document.createElement('td');
+    var td4 = document.createElement('td');
+    td1.innerText = event.day
+    td2.innerText = `${event.title_type} : ${event.title}`;
+    td3.innerText = event.organiser;
+    td4.innerText = event.start_time;
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    table.appendChild(tr);
+  });
+
+  target.appendChild(table);
+};
+
 DisplayEvents.prototype.render = function (info) {
 const target = document.querySelector('.techinfo');
 target.innerText = "";
@@ -24,7 +70,6 @@ target.innerText = "";
 };
 
 var namechop = function(string){
-  console.log(string.indexOf(":"));
   if (string.indexOf(":") == -1) {
     return string.length}
   else {
