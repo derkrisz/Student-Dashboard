@@ -1,4 +1,3 @@
-// const syllabusView = require('./views/syllabus_view');
 const FullSyllabus = require('./views/full_syllabus_view');
 const ColumnConstruct = require('./models/columns.js');
 const Request = require('./services/request');
@@ -14,7 +13,6 @@ const displayEvents = new DisplayEvents();
 const columnConstruct = new ColumnConstruct();
 const dateView = new DateView();
 const cohorts = new Cohorts();
-// syllabusView = new SyllabusView()
 
 
 const syllabusButtonClicked = function(){
@@ -44,12 +42,7 @@ const app = function() {
 
 const allColumnsConstructed = function(wholeSyllabus){
   cohorts.populate();
-  var cohort1week = cohorts.cohortsArray[0].week;
-  columnConstruct.renderColumn1(cohort1week, wholeSyllabus);
-  var cohort2week = cohorts.cohortsArray[1].week;
-  columnConstruct.renderColumn2(cohort2week, wholeSyllabus);
-  var cohort3week = cohorts.cohortsArray[2].week;
-  columnConstruct.renderColumn3(cohort3week, wholeSyllabus);
+  columnConstruct.renderColumn(cohorts, wholeSyllabus);
 };
 
 const getFullSyllabusComplete = function(allSyllabus){
