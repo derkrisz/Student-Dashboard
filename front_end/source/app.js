@@ -26,7 +26,7 @@ const syllabusButtonClicked = function(){
 }
 
 const pdaButtonClicked = function(){
-  location.href = "https://github.com/codeclan/pda";
+  window.open("https://github.com/codeclan/pda");
 }
 
 const closePopup = function(){
