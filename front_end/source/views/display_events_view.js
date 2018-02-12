@@ -1,15 +1,12 @@
 const DisplayEvents = function(){
-  
+
 }
 
 DisplayEvents.prototype.renderInternal = function (events) {
-  console.log(events);
   const target = document.querySelector('.internalinfo');
   target.innerText = "";
   var table = document.createElement('table');
-
   var tabletitles =document.createElement('tr');
-
   var tabletitle1 = document.createElement('th');
   tabletitle1.innerText = "Day";
   var tabletitle2 = document.createElement('th');
@@ -27,17 +24,19 @@ DisplayEvents.prototype.renderInternal = function (events) {
 
 
   events.forEach(function(event){
-    console.log(events);
-    console.log(events[0]);
     var tr = document.createElement('tr');
     var td1 = document.createElement('td');
     var td2 = document.createElement('td');
     var td3 = document.createElement('td');
     var td4 = document.createElement('td');
+    var a = document.createElement('a');
+    a.href = event.title_url;
+    a.target = "_blank"
+    a.innerHTML = `${event.title_type} : ${event.title}`;
+    td2.appendChild(a);
     td1.innerText = event.day
-    td2.innerText = `${event.title_type} : ${event.title}`;
     td3.innerText = event.organiser;
-    td4.innerText = event.start_time;
+    td4.innerText = event.total_time;
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
@@ -49,8 +48,8 @@ DisplayEvents.prototype.renderInternal = function (events) {
 };
 
 DisplayEvents.prototype.render = function (info) {
-const target = document.querySelector('.techinfo');
-target.innerText = "";
+  const target = document.querySelector('.techinfo');
+  target.innerText = "";
   const ul = document.createElement('ul');
   for (counter = 0; counter < 7; counter++){
     var day = info.data[counter].start.displaylocal;

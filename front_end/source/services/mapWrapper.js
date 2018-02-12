@@ -17,6 +17,10 @@ MapWrapper.prototype.addMarker = function (coords) {
   return marker;
 }
 
+MapWrapper.prototype.popUp = function (lat, lng) {
+
+};
+
 MapWrapper.prototype.addClickEvent = function () {
   google.maps.event.addListener(this.googleMap, 'click', function (event) {
     var position = { lat: event.latLng.lat(), lng: event.latLng.lng() }
