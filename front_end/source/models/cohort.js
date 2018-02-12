@@ -11,9 +11,9 @@ const Cohort = function(name, start_date, teachers){
 }
 
 Cohort.prototype.setNoOfWeeks = function(){
-  var oneWeek = 7*24*60*60*1000; // hours*minutes*seconds*milliseconds
+  var oneWeek = 7*24*60*60*1000;
   var startDate = this.start_date;
-  var currentDate = new Date(); // can you use todays date here?
+  var currentDate = new Date(); 
   var diffWeeks = Math.round(Math.abs((startDate.getTime() - currentDate.getTime())/(oneWeek)));
   this.week += diffWeeks-2;
 }

@@ -18,5 +18,5 @@ beforeEach(function () {
 it('should count the week numbers since starting', function() {
   assert.equal(cohort1.week, 14);
   assert.equal(cohort2.week, 11);
-  assert.equal(cohort3.week, 2);
+  assert.equal(cohort3.week, 3);
 });
