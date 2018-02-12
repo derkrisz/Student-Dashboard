@@ -1,11 +1,10 @@
 const express = require('express');
 const server = express();
-server.use(express.static('build'));
 const cors = require('cors');
 const request = require('request');
 
+server.use(express.static('build'));
 server.use(cors());
-
 
 server.get('/api/events', function(req, res) {
   const options = {
@@ -21,8 +20,6 @@ server.get('/api/events', function(req, res) {
     res.json(json)
   });
 });
-
-
 
 server.listen(3000, function(){
   console.log("Listening on port 3000");

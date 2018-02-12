@@ -1,17 +1,19 @@
 const syllabusView = require('./views/syllabus_view');
-// syllabusView = new SyllabusView()
 const FullSyllabus = require('./views/full_syllabus_view');
-const fullSyllabus = new FullSyllabus();
-const Request = require('./services/request');
-const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const ColumnConstruct = require('./models/columns.js');
-const columnConstruct = new ColumnConstruct();
-const DisplayEvents = require('./views/display_events_view.js')
-const externalEventsRequest = new Request('http://localhost:3000/api/events');
-const displayEvents = new DisplayEvents();
+const Request = require('./services/request');
 const MapWrapper = require('./services/mapWrapper.js');
 const DateView = require('./views/date_view');
+const DisplayEvents = require('./views/display_events_view.js')
+
+const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
+const externalEventsRequest = new Request('http://localhost:3000/api/events');
+const fullSyllabus = new FullSyllabus();
+const displayEvents = new DisplayEvents();
+const columnConstruct = new ColumnConstruct();
 const dateView = new DateView();
+// syllabusView = new SyllabusView()
+
 
 const syllabusButtonClicked = function(){
   console.log("button clicked");
@@ -24,23 +26,19 @@ const closePopup = function(){
   popupDiv.style.display = 'none';
 }
 
-
-
 const app = function() {
   const syllabusButton = document.querySelector('#full-details');
-  syllabusButton.addEventListener('click', syllabusButtonClicked);
   const closeSyllabusClicked = document.querySelector("#close_popup");
+  syllabusButton.addEventListener('click', syllabusButtonClicked);
   closeSyllabusClicked.addEventListener('click', closePopup);
-  dateView.dynamicDate();
+
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
-
-  mapInitialize();
-
-
   externalEventsRequest.get(displayEventsTech);
-};
+  mapInitialize();
+  dateView.dynamicDate();
 
+};
 
 const allColumnsConstructed = function(wholeSyllabus){
   var cohort1week = 13;
@@ -57,13 +55,8 @@ const getFullSyllabusComplete = function(allSyllabus){
   })
 };
 
-
 const displayEventsTech = function(info){
-  console.log(info);
   displayEvents.render(info);
-  console.log(info);
-  // var date =
-  // DisplayEvents.render(events, date)
 };
 
 const mapInitialize = function(){
