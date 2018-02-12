@@ -63,7 +63,7 @@ DisplayEvents.prototype.render = function (info) {
   var tabletitle2 = document.createElement('th');
   tabletitle2.innerText = "Event";
   var tabletitle3 = document.createElement('th');
-  tabletitle3.innerText = "";
+  tabletitle3.innerText = "Venue";
   var tabletitle4 = document.createElement('th');
   tabletitle4.innerText = "Time";
   tabletitles.appendChild(tabletitle1);
@@ -84,7 +84,15 @@ DisplayEvents.prototype.render = function (info) {
       var daysub = day.substring(0, 3);
       var name = info.data[counter].summaryDisplay;
       var namesub = name.substring(0, namechop(name));
-      var venue ="Venue";
+      var venue ="TBA";
+
+      try{
+        var venueFullName =info.data[counter].venue.title
+        venue = venueFullName.substring(0, venuechop(venueFullName));
+      }
+      catch(e){
+      }
+
       var venuelat = info.data[1].venue.lat;
       var venuelng = info.data[1].venue.lng;
       var timestart = info.data[counter].start.hourtimezone + ":" + info.data[counter].start.minutetimezone;
@@ -139,5 +147,11 @@ var namechop = function(string){
     return string.indexOf(":");
   }
 };
-
+var venuechop = function(string){
+  if (string.indexOf(",") == -1) {
+    return string.length}
+  else {
+    return string.indexOf(",");
+  }
+};
 module.exports = DisplayEvents;
