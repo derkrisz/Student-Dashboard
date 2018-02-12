@@ -1,5 +1,5 @@
 const DisplayEvents = function(){
-
+  
 }
 
 DisplayEvents.prototype.renderInternal = function (events) {
@@ -57,7 +57,6 @@ target.innerText = "";
     var daysub = day.substring(0, 3);
     var name = info.data[counter].summaryDisplay;
     var namesub = name.substring(0, namechop(name));
-    // tried to use .link to add a hyperlink to namechop in order to save space. didnt work but might with correct innerHTML
     const li = document.createElement('li');
     const a = document.createElement('a');
     a.href = info.data[counter].siteurl;

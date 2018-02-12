@@ -1,5 +1,5 @@
 const FullSyllabus = require('./views/full_syllabus_view');
-const ColumnConstruct = require('./models/columns.js');
+const ColumnView = require('./views/columns_view.js');
 const Request = require('./services/request');
 const MapWrapper = require('./services/mapWrapper.js');
 const DateView = require('./views/date_view');
@@ -12,14 +12,12 @@ const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const externalEventsRequest = new Request('http://localhost:3000/api/events');
 const fullSyllabus = new FullSyllabus();
 const displayEvents = new DisplayEvents();
-const columnConstruct = new ColumnConstruct();
+const columnConstruct = new ColumnView();
 const dateView = new DateView();
 const cohorts = new Cohorts();
 const events = new Events();
 events.populate();
 
-
-// syllabusView = new SyllabusView()
 
 const syllabusButtonClicked = function(){
   console.log("button clicked");
