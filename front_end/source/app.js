@@ -1,10 +1,11 @@
-const syllabusView = require('./views/syllabus_view');
+// const syllabusView = require('./views/syllabus_view');
 const FullSyllabus = require('./views/full_syllabus_view');
 const ColumnConstruct = require('./models/columns.js');
 const Request = require('./services/request');
 const MapWrapper = require('./services/mapWrapper.js');
 const DateView = require('./views/date_view');
-const DisplayEvents = require('./views/display_events_view.js')
+const DisplayEvents = require('./views/display_events_view.js');
+const Cohorts = require('./models/cohorts.js');
 
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const externalEventsRequest = new Request('http://localhost:3000/api/events');
@@ -12,6 +13,7 @@ const fullSyllabus = new FullSyllabus();
 const displayEvents = new DisplayEvents();
 const columnConstruct = new ColumnConstruct();
 const dateView = new DateView();
+const cohorts = new Cohorts();
 // syllabusView = new SyllabusView()
 
 
