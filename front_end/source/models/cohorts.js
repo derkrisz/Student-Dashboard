@@ -9,9 +9,9 @@ var teachers1 = ["Keith", "Sandy", "Sian", "Upul"];
 var teachers2 =["Craig", "Zsolt", "John"];
 var teachers3 = ["Darren", "Finn", "Jarrod"];
 
-var cohort1 = new Cohort("E17", 30/10/17, teachers1, 13);
-var cohort2 = new Cohort("E18", 20/11/17, teachers2, 10);
-var cohort3 = new Cohort("E19", 29/01/18, teachers3, 2);
+cohort1 = new Cohort("E17", new Date(2017, 09, 30), teachers1);
+cohort2 = new Cohort("E18", new Date(2017, 10, 20), teachers2);
+cohort3 = new Cohort("E19", new Date(2018, 0, 29), teachers3);
 
 cohorts.push(cohort1);
 cohorts.push(cohort2);

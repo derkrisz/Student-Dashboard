@@ -10,7 +10,8 @@ const DisplayEvents = require('./views/display_events_view.js')
 const externalEventsRequest = new Request('https://opentechcalendar.co.uk/api1/area/62/events.json');
 const displayEvents = new DisplayEvents();
 const MapWrapper = require('./services/mapWrapper.js');
-
+const DateView = require('./views/date_view');
+const dateView = new DateView();
 
 const syllabusButtonClicked = function(){
   console.log("button clicked");
@@ -30,6 +31,8 @@ const app = function() {
   syllabusButton.addEventListener('click', syllabusButtonClicked);
   const closeSyllabusClicked = document.querySelector("#close_popup");
   closeSyllabusClicked.addEventListener('click', closePopup);
+
+  dateView.dynamicDate();
 
 
   syllabusRequest.get(getFullSyllabusComplete);
