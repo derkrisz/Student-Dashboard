@@ -1,5 +1,5 @@
 const DateView = function() {
-
+  
 }
 
 DateView.prototype.displayDate = function () {

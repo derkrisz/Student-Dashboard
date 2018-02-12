@@ -1,6 +1,5 @@
-
-
 const ColumnConstruct = function(){
+  
 }
 
 ColumnConstruct.prototype.renderColumn = function(cohortsObject, syllabus){
