@@ -10,7 +10,7 @@ Events.prototype.populate = function () {
   const event2start = new Date(2018, 1, 16, 10 , 0);
   const event2end = new Date(2018, 1, 16, 14 , 0);
   const event1 = new Event("Float", "Lunch Time Talk", 'https://floatapp.com/', "Emily", 'emily.milne@codeclan.com', event1start, event1end, "12am - 13pm" , "Fri");
-  const event2 = new Event("E17", "Speed Networking", 'https://codeclan.com/employers/partners/', "Kim", 'kim.watson@codeclan.com', event2start, event2end, "10am - 2.30pm " ,"Fri");
+  const event2 = new Event("E17", "Speed Networking", 'https://codeclan.com/employers/partners/', "Kim", 'kim.watson@codeclan.com', event2start, event2end, "10am - 2.30pm" ,"Fri");
   this.events.push(event1);
   this.events.push(event2);
 };
