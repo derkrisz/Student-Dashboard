@@ -6,6 +6,7 @@ const MapWrapper = require('./services/mapWrapper.js');
 const DateView = require('./views/date_view');
 const DisplayEvents = require('./views/display_events_view.js');
 const Event = require('./models/event.js');
+const Events = require('./models/events.js');
 
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const externalEventsRequest = new Request('http://localhost:3000/api/events');
@@ -13,19 +14,11 @@ const fullSyllabus = new FullSyllabus();
 const displayEvents = new DisplayEvents();
 const columnConstruct = new ColumnConstruct();
 const dateView = new DateView();
-;
+const events = new Events();
+events.populate();
+
+
 // syllabusView = new SyllabusView()
-
-const events1 = [];
-const event1start = new Date(2018, 1, 9, 12 , 0);
-const event1end = new Date(2018, 1, 9, 13 , 0);
-const event2start = new Date(2018, 1, 16, 10 , 0);
-const event2end = new Date(2018, 1, 16, 14 , 0);
-var event1 = new Event("Float", "Lunch Time Talk", 'https://floatapp.com/', "Emily", 'emily.milne@codeclan.com', event1start, event1end, "Fri");
-var event2 = new Event("E17", "Speed Networking", 'https://codeclan.com/', "Kim", 'kim.watson@codeclan.com', event2start, event2end, "Fri");
-events1.push(event1);
-events1.push(event2);
-
 
 const syllabusButtonClicked = function(){
   console.log("button clicked");
@@ -49,7 +42,7 @@ const app = function() {
   externalEventsRequest.get(displayEventsTech);
   // mapInitialize();
   dateView.dynamicDate();
-  displayEventsInternal(events1);
+  displayEventsInternal(events.events);
 
 
 };
@@ -76,10 +69,6 @@ const displayEventsTech = function(info){
 const displayEventsInternal = function(events){
   displayEvents.renderInternal(events);
 }
-
-
-
-
 
 
 
