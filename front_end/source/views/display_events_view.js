@@ -13,7 +13,11 @@ target.innerText = "";
     var namesub = name.substring(0, namechop(name));
     // tried to use .link to add a hyperlink to namechop in order to save space. didnt work but might with correct innerHTML
     const li = document.createElement('li');
-    li.innerText = `${daysub} ${namesub} ` + "\n "+ info.data[counter].siteurl ;
+    const a = document.createElement('a');
+    a.href = info.data[counter].siteurl;
+    a.target = "_blank"
+    a.innerHTML = `${daysub} ${namesub} `;
+    li.appendChild(a);
     ul.appendChild(li);
   }
   target.appendChild(ul);
