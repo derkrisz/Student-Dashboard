@@ -43,11 +43,11 @@ const app = function() {
 };
 
 const allColumnsConstructed = function(wholeSyllabus){
-  var cohort1week = 13;
+  var cohort1week = cohorts[0].week;
   columnConstruct.renderColumn1(cohort1week, wholeSyllabus);
-  var cohort2week = 10;
+  var cohort2week = cohorts[1].week;
   columnConstruct.renderColumn2(cohort2week, wholeSyllabus);
-  var cohort3week = 2;
+  var cohort3week = cohorts[2].week;
   columnConstruct.renderColumn3(cohort3week, wholeSyllabus);
 };
 

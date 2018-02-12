@@ -5,7 +5,7 @@ const DateView = function() {
 DateView.prototype.displayDate = function () {
   const now = new Date();
   dateField = document.querySelector('#date');
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   dateField.innerText = now.toLocaleDateString('gb-GB', options);
 };
 
