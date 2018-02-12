@@ -31,14 +31,13 @@ const app = function() {
   syllabusButton.addEventListener('click', syllabusButtonClicked);
   const closeSyllabusClicked = document.querySelector("#close_popup");
   closeSyllabusClicked.addEventListener('click', closePopup);
-
   dateView.dynamicDate();
-
-
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
-  externalEventsRequest.get(displayEventsTech);
   mapInitialize();
+
+
+  // externalEventsRequest.get(displayEventsTech);
 };
 
 
@@ -67,11 +66,11 @@ const displayEventsTech = function(info){
 };
 
 const mapInitialize = function(){
-var mapDiv = document.querySelector('.internalinfo');
+  var mapDiv = document.querySelector('.internalinfo');
 
-var center = { lat: 55.9470, lng: -3.2020 };
-var mainMap = new MapWrapper(mapDiv, center, 16);
-mainMap.addMarker(center);
+  var center = { lat: 55.9470, lng: -3.2020 };
+  var mainMap = new MapWrapper(mapDiv, center, 16);
+  mainMap.addMarker(center);
 
 }
 
