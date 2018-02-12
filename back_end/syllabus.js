@@ -119,6 +119,7 @@ db.syllabus.insert({
   day1: "JS Intro - Fundamentals \n Functions, Scope, Let & Const",
   day2: "Objects and Constructor Functions \n Prototypal Inheritance \n Water Bottle TDD \n OO Bank",
   day3: "Intro to callbacks \n Enumeration",
+  day4: "This \n LODASH \n Closures \n Record store lab",
   day5: "NPM recap"
  });
 

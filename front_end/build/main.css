@@ -11,9 +11,9 @@
 .item24 { grid-area: thu; }
 .item25 { grid-area: fri; }
 .item4 { grid-area: right; }
-.item6 { grid-area: e17; }
-.item7 { grid-area: e18; }
-.item8 { grid-area: e19; }
+.coh1 { grid-area: coh1; }
+.coh2 { grid-area: coh2; }
+.coh3 { grid-area: coh3; }
 .Mon1 { grid-area: Mon1; }
 .Mon2 { grid-area: Mon2; }
 .Mon3 { grid-area: Mon3; }
@@ -41,7 +41,7 @@
   grid-template-areas:
   'header header title title title title weather weather'
   'date date nav_bar nav_bar nav_bar nav_bar weather weather '
-  'menu e17 e17 e18 e18 e19 e19 right'
+  'menu coh1 coh1 coh2 coh2 coh3 coh3 right'
   'mon Mon1 Mon1 Mon2 Mon2 Mon3 Mon3 right'
   'tue Tue1 Tue1 Tue2 Tue2 Tue3 Tue3 right'
   'wed Wed1 Wed1 Wed2 Wed2 Wed3 Wed3 right'
@@ -64,6 +64,13 @@ img {
   text-align: center;
   border: 2px solid #0B70B8;
   border-radius: 15px;
+}
+
+#date {
+  font-family: 'Oswald', sans-serif;
+  color: #0B70B8;
+  font-size: 20px;
+  text-align: center;
 }
 
 .techmeet {

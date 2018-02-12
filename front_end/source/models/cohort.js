@@ -1,6 +1,3 @@
-const Request = require('../services/request');
-
-
 const Cohort = function(name, start_date, teachers, xmas){
   this.name = name;
   this.start_date = start_date;
@@ -16,7 +13,10 @@ Cohort.prototype.setNoOfWeeks = function(){
   var startDate = this.start_date;
   var currentDate = new Date();
   var diffWeeks = Math.round(Math.abs((startDate.getTime() - currentDate.getTime())/(oneWeek)));
-  if (this.break === true && currentDate.getMonth() < 4) {
+  if (startDate > currentDate) {
+    this.week = 0;
+  }
+  else if (this.break === true && currentDate.getMonth() < 4) {
     this.week += diffWeeks-2;
   }else
   {this.week += diffWeeks};
