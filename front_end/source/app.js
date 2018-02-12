@@ -43,11 +43,12 @@ const app = function() {
 };
 
 const allColumnsConstructed = function(wholeSyllabus){
-  var cohort1week = cohorts[0].week;
+  cohorts.populate();
+  var cohort1week = cohorts.cohortsArray[0].week;
   columnConstruct.renderColumn1(cohort1week, wholeSyllabus);
-  var cohort2week = cohorts[1].week;
+  var cohort2week = cohorts.cohortsArray[1].week;
   columnConstruct.renderColumn2(cohort2week, wholeSyllabus);
-  var cohort3week = cohorts[2].week;
+  var cohort3week = cohorts.cohortsArray[2].week;
   columnConstruct.renderColumn3(cohort3week, wholeSyllabus);
 };
 
