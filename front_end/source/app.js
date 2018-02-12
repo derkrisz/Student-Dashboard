@@ -7,7 +7,7 @@ const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const ColumnConstruct = require('./models/columns.js');
 const columnConstruct = new ColumnConstruct();
 const DisplayEvents = require('./views/display_events_view.js')
-const externalEventsRequest = new Request('https://opentechcalendar.co.uk/api1/area/62/events.json');
+const externalEventsRequest = new Request('http://localhost:3000/api/events');
 const displayEvents = new DisplayEvents();
 const MapWrapper = require('./services/mapWrapper.js');
 const DateView = require('./views/date_view');
@@ -34,10 +34,11 @@ const app = function() {
   dateView.dynamicDate();
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
+
   mapInitialize();
 
 
-  // externalEventsRequest.get(displayEventsTech);
+  externalEventsRequest.get(displayEventsTech);
 };
 
 
