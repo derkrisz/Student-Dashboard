@@ -1,11 +1,15 @@
 const syllabusView = require('./views/syllabus_view');
 // syllabusView = new SyllabusView()
-const FullSyllabus = require('./views/full_syllabus_view')
+const FullSyllabus = require('./views/full_syllabus_view');
 const fullSyllabus = new FullSyllabus();
 const Request = require('./services/request');
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
-const ColumnConstruct = require('./models/columns.js')
+const ColumnConstruct = require('./models/columns.js');
 const columnConstruct = new ColumnConstruct();
+const DisplayEvents = require('./views/display_events_view.js')
+const externalEventsRequest = new Request('https://opentechcalendar.co.uk/api1/area/62/events.json');
+const displayEvents = new DisplayEvents();
+const MapWrapper = require('./services/mapWrapper.js');
 
 
 const syllabusButtonClicked = function(){
@@ -19,6 +23,8 @@ const closePopup = function(){
   popupDiv.style.display = 'none';
 }
 
+
+
 const app = function() {
   const syllabusButton = document.querySelector('#full-details');
   syllabusButton.addEventListener('click', syllabusButtonClicked);
@@ -28,9 +34,10 @@ const app = function() {
 
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
-
-
+  externalEventsRequest.get(displayEventsTech);
+  mapInitialize();
 };
+
 
 const allColumnsConstructed = function(wholeSyllabus){
   var cohort1week = 13;
@@ -46,5 +53,23 @@ const getFullSyllabusComplete = function(allSyllabus){
     fullSyllabus.render(week);
   })
 };
+
+
+const displayEventsTech = function(info){
+  console.log(info);
+  displayEvents.render(info);
+  console.log(info);
+  // var date =
+  // DisplayEvents.render(events, date)
+};
+
+const mapInitialize = function(){
+var mapDiv = document.querySelector('.internalinfo');
+
+var center = { lat: 55.9470, lng: -3.2020 };
+var mainMap = new MapWrapper(mapDiv, center, 16);
+mainMap.addMarker(center);
+
+}
 
 document.addEventListener("DOMContentLoaded", app);
