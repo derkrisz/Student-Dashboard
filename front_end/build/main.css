@@ -219,3 +219,8 @@ button {
   margin-right: 15px;
   margin-right: 15px;
 }
+
+.internalinfo {
+  width: 500px;
+  height: 500px;
+}
