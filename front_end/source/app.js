@@ -78,14 +78,4 @@ const displayEventsInternal = function(events){
 }
 
 
-
-const mapInitialize = function(){
-  var mapDiv = document.querySelector('.internalinfo');
-
-  var center = { lat: 55.9470, lng: -3.2020 };
-  var mainMap = new MapWrapper(mapDiv, center, 16);
-  mainMap.addMarker(center);
-
-}
-
 document.addEventListener("DOMContentLoaded", app);
