@@ -24,7 +24,7 @@ A place for students to access daily and weekly information - what the syllabus 
 ### Installing:
   First, set up the back-end server and Mongo database:
 
-  In the back-end directory, start the database and seed with the syllabus api.
+  In the `back_end` directory, start the database and seed with the syllabus api.
   ```
   mongod
   mongo < syllabus.js
@@ -35,7 +35,7 @@ A place for students to access daily and weekly information - what the syllabus 
   ```
   Then set up the front-end server:
 
-  Start the server in the front-end directory.
+  Start the server in the `front_end` directory.
   ```
   npm start
   ```
