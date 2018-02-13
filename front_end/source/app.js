@@ -39,15 +39,22 @@ const closeMap = function(){
   mapPopUp.style.display = 'none';
 }
 
+const pubMapPopup = function(){
+console.log("pubs clicked");
+}
+
 const app = function() {
   const syllabusButton = document.querySelector('#full-details');
   const closeSyllabusClicked = document.querySelector("#close_popup");
   const closeMapClicked = document.querySelector("#close_mappopup");
   const pdaButton = document.querySelector('#PDA');
+  const pubsButtonClicked = document.querySelector('#pubs');
+
   pdaButton.addEventListener('click', pdaButtonClicked);
   syllabusButton.addEventListener('click', syllabusButtonClicked);
   closeSyllabusClicked.addEventListener('click', closePopup);
   closeMapClicked.addEventListener('click', closeMap);
+  pubsButtonClicked.addEventListener('click', pubMapPopup);
 
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
