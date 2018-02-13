@@ -83,10 +83,10 @@ DisplayEvents.prototype.render = function (info) {
       var td4 = document.createElement('td');
       var a = document.createElement('a');
 
-      var day = info.data[counter].start.displaylocal;
-      var daysub = day.substring(0, 3);
+      var day = info.data[counter].start.rfc2882local;
+      var daysub = day.substring(0, 12);
       var date = info.data[counter].start.daylocal;
-      var dateday = date + " " + daysub;
+      // var dateday = date + " " + daysub;
       var name = info.data[counter].summaryDisplay;
       var namesub = name.substring(0, namechop(name));
       var venue ="TBA";
@@ -115,7 +115,7 @@ DisplayEvents.prototype.render = function (info) {
       a.href = info.data[counter].siteurl;
       a.target = "_blank"
       a.innerHTML = namesub;
-      td1.innerText = dateday;
+      td1.innerText = daysub;
       td2.appendChild(a);
       td3.appendChild(venueButton);
       td4.innerText = totaltime;
