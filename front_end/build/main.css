@@ -168,7 +168,7 @@ height: auto;
   border-bottom: 2px dashed white;
 }
 
-.button {
+button {
   text-align: center;
 }
 
@@ -199,7 +199,6 @@ button:hover {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-
 
 #popup_bg {
   position: fixed;

@@ -1,5 +1,5 @@
 const ColumnConstruct = function(){
-  
+
 }
 
 ColumnConstruct.prototype.renderColumn = function(cohortsObject, syllabus){
@@ -7,7 +7,19 @@ ColumnConstruct.prototype.renderColumn = function(cohortsObject, syllabus){
   cohortsObject.cohortsArray.forEach(function(cohort, index){
     index ++;
     const cohortName = document.querySelector(`.coh${index}`)
-    cohortName.innerText = cohort.name;
+    const name = document.createElement('p');
+    const homework = document.createElement('p');
+    const anchor = document.createElement('a');
+
+    name.innerText = cohort.name;
+    anchor.href = cohort.homework_link;
+    anchor.target = "_blank";
+    anchor.innerText = 'Submit homework';
+
+    homework.appendChild(anchor);
+    cohortName.appendChild(name);
+    cohortName.appendChild(homework);
+
     const day1 = document.querySelector(`.Mon${index}`);
     const day2 = document.querySelector(`.Tue${index}`);
     const day3 = document.querySelector(`.Wed${index}`);
