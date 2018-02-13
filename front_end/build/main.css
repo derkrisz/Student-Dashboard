@@ -351,8 +351,10 @@ button:hover {
 }
 
 #mapPopUpMain {
-  height: 450px;
+  margin-top: 93px;
+  height: 404px;
   width: 800px;
+  border: 2px solid #2EA8E1;
 }
 
 #popup_title , #mappopup_title{
