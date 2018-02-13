@@ -13,3 +13,31 @@ A place for students to access daily and weekly information - what the syllabus 
   - To add links to PDA, Careers/Jobs, contact links to admin/homework submission etc.
   - To add data on local Tech Meetups using an external API, possibly with Map view.
   - And any other extensions…
+
+### Prerequisites:
+  After pulling the project down to the local directory, install all front-end and back-end packages from the npm package manager.
+  ```
+  npm install
+  ```
+  Inside both the back_end and front_end directories of the project.
+
+### Installing:
+  First, set up the back-end server and Mongo database:
+
+  In the back-end directory, start the database and seed with the syllabus api.
+  ```
+  mongod
+  mongo < syllabus.js
+  ```
+  Then start the back-end server.
+  ```
+  npm start
+  ```
+  Then set up the front-end server:
+
+  Start the server in the front-end directory.
+  ```
+  npm start
+  ```
+
+  Use `http://localhost:3000/` to start the app.
