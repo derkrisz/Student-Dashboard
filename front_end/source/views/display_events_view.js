@@ -153,7 +153,8 @@ var venuePopUp = function(){
       var lngNum = Number(lng);
       var center = { lat: latNum, lng: lngNum };
       var mainMap = new MapWrapper(mapDiv, center, 16);
-      mainMap.addMarker(center);
+      var bubble =mainMap.addMarker(center);
+      mainMap.addInfoBubble(bubble, "Here");
     }
   }
 
@@ -177,7 +178,7 @@ var venuePopUp = function(){
         var returnedEvents = [];
         var now = new Date();
         events.forEach(function(event){
-          if (event.start_time > now){
+          if (event.end_time > now){
             returnedEvents.push(event)
           }
         })
