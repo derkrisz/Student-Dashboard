@@ -35,12 +35,16 @@ DisplayEvents.prototype.renderInternal = function (events) {
     var td3 = document.createElement('td');
     var td4 = document.createElement('td');
     var a = document.createElement('a');
+    var a1 = document.createElement('a');
     a.href = event.title_url;
     a.target = "_blank"
     a.innerHTML = `${event.title_type} : ${event.title}`;
     td2.appendChild(a);
     td1.innerText = event.day
-    td3.innerText = event.organiser;
+    a1.href = event.organiser_email;
+    a1.innerHTML = `${event.organiser}`;
+    td3.appendChild(a1);
+
     td4.innerText = event.total_time;
     tr.appendChild(td1);
     tr.appendChild(td2);
@@ -53,7 +57,6 @@ DisplayEvents.prototype.renderInternal = function (events) {
 };
 
 DisplayEvents.prototype.render = function (info) {
-  console.log(info.data[1].venue.title);
   const target = document.querySelector('.techinfo');
   target.innerText = "";
   var table = document.createElement('table');
@@ -82,6 +85,8 @@ DisplayEvents.prototype.render = function (info) {
 
       var day = info.data[counter].start.displaylocal;
       var daysub = day.substring(0, 3);
+      var date = info.data[counter].start.daylocal;
+      var dateday = date + " " + daysub;
       var name = info.data[counter].summaryDisplay;
       var namesub = name.substring(0, namechop(name));
       var venue ="TBA";
@@ -97,7 +102,6 @@ DisplayEvents.prototype.render = function (info) {
       catch(e){
       }
 
-
       var timestart = info.data[counter].start.hourtimezone + ":" + info.data[counter].start.minutetimezone;
       var timeend = info.data[counter].end.hourtimezone + ":" + info.data[counter].end.minutetimezone;
       var totaltime = `${timestart} - ${timeend}`;
@@ -111,13 +115,10 @@ DisplayEvents.prototype.render = function (info) {
       a.href = info.data[counter].siteurl;
       a.target = "_blank"
       a.innerHTML = namesub;
-
-      td1.innerText = daysub;
+      td1.innerText = dateday;
       td2.appendChild(a);
       td3.appendChild(venueButton);
-
       td4.innerText = totaltime;
-
       tr.appendChild(td1);
       tr.appendChild(td2);
       tr.appendChild(td3);

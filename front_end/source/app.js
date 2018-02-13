@@ -52,7 +52,6 @@ const app = function() {
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
   externalEventsRequest.get(displayEventsTech);
-  // mapInitialize();
   dateView.dynamicDate();
   displayEventsInternal(events.events);
 
@@ -78,15 +77,5 @@ const displayEventsInternal = function(events){
   displayEvents.renderInternal(events);
 }
 
-
-
-const mapInitialize = function(){
-  var mapDiv = document.querySelector('.internalinfo');
-
-  var center = { lat: 55.9470, lng: -3.2020 };
-  var mainMap = new MapWrapper(mapDiv, center, 16);
-  mainMap.addMarker(center);
-
-}
 
 document.addEventListener("DOMContentLoaded", app);
