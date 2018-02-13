@@ -355,6 +355,10 @@ button:hover {
   height: 404px;
   width: 800px;
   border: 2px solid #2EA8E1;
+  font-family: 'Oswald', sans-serif;
+  font-size: 35px;
+  text-align: center;
+  color: #0B70B8;
 }
 
 #popup_title , #mappopup_title{
