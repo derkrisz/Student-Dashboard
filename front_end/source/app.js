@@ -25,6 +25,10 @@ const syllabusButtonClicked = function(){
   popupDiv.style.display = 'block';
 }
 
+const pdaButtonClicked = function(){
+  window.open("https://github.com/codeclan/pda");
+}
+
 const closePopup = function(){
   var popupDiv = document.querySelector("#popup_bg");
   popupDiv.style.display = 'none';
@@ -33,6 +37,8 @@ const closePopup = function(){
 const app = function() {
   const syllabusButton = document.querySelector('#full-details');
   const closeSyllabusClicked = document.querySelector("#close_popup");
+  const pdaButton = document.querySelector('#PDA');
+  pdaButton.addEventListener('click', pdaButtonClicked);
   syllabusButton.addEventListener('click', syllabusButtonClicked);
   closeSyllabusClicked.addEventListener('click', closePopup);
 
