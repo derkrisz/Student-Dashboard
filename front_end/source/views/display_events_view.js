@@ -55,6 +55,7 @@ const createInternalEventsTable = function(events){
 const createExternalEventsTable = function(info){
   const target = document.querySelector('.techinfo');
   target.innerText = "";
+  
   var table = document.createElement('table');
   var tabletitles =document.createElement('tr');
   var tabletitle1 = document.createElement('th');
@@ -65,6 +66,7 @@ const createExternalEventsTable = function(info){
   tabletitle2.innerText = "Event";
   tabletitle3.innerText = "Venue";
   tabletitle4.innerText = "Time";
+
   tabletitles.appendChild(tabletitle1);
   tabletitles.appendChild(tabletitle2);
   tabletitles.appendChild(tabletitle3);
