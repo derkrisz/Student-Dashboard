@@ -29,7 +29,7 @@ A place for students to access daily and weekly information - what the syllabus 
   mongod
   mongo < syllabus.js
   ```
-  Then start the back-end server.
+  Start the back-end server.
   ```
   npm start
   ```
@@ -40,4 +40,4 @@ A place for students to access daily and weekly information - what the syllabus 
   npm start
   ```
 
-  Use `http://localhost:3000/` to start the app.
+  Use `http://localhost:3000/` to start the app in the browser.
