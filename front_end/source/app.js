@@ -52,7 +52,6 @@ const app = function() {
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
   externalEventsRequest.get(displayEventsTech);
-  // mapInitialize();
   dateView.dynamicDate();
   displayEventsInternal(events.events);
 
