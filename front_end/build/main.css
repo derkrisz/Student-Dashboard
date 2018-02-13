@@ -56,11 +56,11 @@
 
 a {
   text-decoration: none;
-  color: #0B70B8;
+  color: #2EA8E1;
 }
 
 a:hover {
-  color: #2EA8E1;
+  color: #0B70B8;
 }
 
 
@@ -70,6 +70,10 @@ img {
 
 body {
   text-decoration: none;
+}
+
+#title {
+  margin-bottom: 15px;
 }
 
 #title, .techmeet, .internalmeet {
@@ -122,6 +126,16 @@ body {
   color: #2EA8E1;
   border-radius: 15px;
 }
+
+/* #internalinfo > table {
+  border-collapse: collapse;
+  border-spacing: 10px;
+}
+
+#internalinfo > td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+} */
 
 #nav_bar {
 height: auto;
@@ -210,6 +224,11 @@ button:hover {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+#table_button {
+  font-size: 17px;
+  padding: 5px 10px 5px 10px;
 }
 
 #popup_bg {
@@ -385,4 +404,8 @@ button:hover {
 
 table {
   width: 100%;
+}
+
+#internalinfo td {
+  padding-bottom: 10px;
 }

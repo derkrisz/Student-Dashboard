@@ -107,6 +107,7 @@ DisplayEvents.prototype.render = function (info) {
       var totaltime = `${timestart} - ${timeend}`;
 
       const venueButton = document.createElement('button');
+      venueButton.id = "table_button";
       venueButton.innerText = venue;
       venueButton.addEventListener('click', VenuePopUp);
       venueButton.value = [venuelat, venuelng];
