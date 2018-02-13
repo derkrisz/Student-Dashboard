@@ -40,9 +40,20 @@ const closeMap = function(){
 }
 
 const pubMapPopup = function(){
-console.log("pubs clicked");
+  console.log("pubs clicked");
   var pubPopup = document.querySelector('#mappopup_bg');
   pubPopup.style.display = 'block';
+  var mapDiv = document.querySelector('#mapPopUpMain');
+  var center = { lat: 55.946613, lng: -3.203017 };
+  var codeclan = { lat: 55.946962, lng: -3.201958 };
+  var pub = { lat: 55.9458, lng: -3.2036 };
+  var mainMap = new MapWrapper(mapDiv, center, 17);
+  var pub1 = mainMap.addMarker(pub);
+  var codeclan1 = mainMap.addMarker(codeclan);
+  mainMap.addInfoBubble(pub1, "The Chanter");
+  mainMap.addInfoBubble(codeclan1, "CodeClan");
+  infoWindowPub.open(mainMap, codeclan);
+  infoWindowCodeclan.open(mainMap, pub);
 }
 
 const app = function() {
@@ -63,7 +74,7 @@ const app = function() {
   externalEventsRequest.get(displayEventsTech);
   dateView.dynamicDate();
   displayEventsInternal(events.events);
-  
+
 
 };
 

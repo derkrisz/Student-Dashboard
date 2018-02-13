@@ -4,6 +4,18 @@ const DisplayEvents = function(){
 
 }
 
+
+DisplayEvents.prototype.renderInternal = function (incomingEvents) {
+  var events = removeEventsBeforeToday(incomingEvents);
+  createInternalEventsTable(events);
+};
+
+DisplayEvents.prototype.render = function (incomingApiInfo) {
+  var info = incomingApiInfo;
+  createExternalEventsTable(info);
+};
+
+
 const createInternalEventsTable = function(events){
   const target = document.querySelector('.internalinfo');
   target.innerText = "";
@@ -55,7 +67,7 @@ const createInternalEventsTable = function(events){
 const createExternalEventsTable = function(info){
   const target = document.querySelector('.techinfo');
   target.innerText = "";
-  
+
   var table = document.createElement('table');
   var tabletitles =document.createElement('tr');
   var tabletitle1 = document.createElement('th');
@@ -107,7 +119,7 @@ const createExternalEventsTable = function(info){
     venueButton.innerText = venue;
     venueButton.addEventListener('click', venuePopUp);
     venueButton.value = [venuelat, venuelng];
-    
+
     a.href = info.data[counter].siteurl;
     a.target = "_blank"
     a.innerHTML = namesub;
@@ -124,16 +136,6 @@ const createExternalEventsTable = function(info){
   }
   target.appendChild(table);
 }
-
-DisplayEvents.prototype.renderInternal = function (incomingEvents) {
-  var events = removeEventsBeforeToday(incomingEvents);
-  createInternalEventsTable(events);
-};
-
-DisplayEvents.prototype.render = function (incomingApiInfo) {
-  var info = incomingApiInfo;
-  createExternalEventsTable(info);
-};
 
 
 var venuePopUp = function(){
