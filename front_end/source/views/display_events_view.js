@@ -59,6 +59,7 @@ DisplayEvents.prototype.renderInternal = function (incomingEvents) {
 DisplayEvents.prototype.render = function (info) {
   const target = document.querySelector('.techinfo');
   target.innerText = "";
+  
   var table = document.createElement('table');
   var tabletitles =document.createElement('tr');
   var tabletitle1 = document.createElement('th');
@@ -69,6 +70,7 @@ DisplayEvents.prototype.render = function (info) {
   tabletitle3.innerText = "Venue";
   var tabletitle4 = document.createElement('th');
   tabletitle4.innerText = "Time";
+
   tabletitles.appendChild(tabletitle1);
   tabletitles.appendChild(tabletitle2);
   tabletitles.appendChild(tabletitle3);
