@@ -56,7 +56,11 @@
 
 a {
   text-decoration: none;
-  color: #0B70B8
+  color: #0B70B8;
+}
+
+a:hover {
+  color: #2EA8E1;
 }
 
 
@@ -158,12 +162,20 @@ height: auto;
   color: 	#0B70B8;
 }
 
+#cohorts p {
+  margin: 0px;
+}
+
+#homework {
+  font-size: 18px;
+}
+
 .grid-container > #boards {
   background-color: rgba(45, 168, 225, 0.47);
-  font-family: 'Caveat', cursive;
+  font-family: 'Walter Turncoat';
   color: #0B70B8;
   padding: 10px;
-  font-size: 25px;
+  font-size: 22px;
   text-align: center;
   border-bottom: 2px dashed white;
 }

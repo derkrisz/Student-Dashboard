@@ -15,6 +15,7 @@ ColumnConstruct.prototype.renderColumn = function(cohortsObject, syllabus){
     anchor.href = cohort.homework_link;
     anchor.target = "_blank";
     anchor.innerText = 'Submit homework';
+    homework.id = "homework";
 
     homework.appendChild(anchor);
     cohortName.appendChild(name);
