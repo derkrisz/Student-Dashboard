@@ -54,7 +54,7 @@ const app = function() {
   externalEventsRequest.get(displayEventsTech);
   dateView.dynamicDate();
   displayEventsInternal(events.events);
-
+  
 
 };
 

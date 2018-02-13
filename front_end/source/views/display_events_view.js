@@ -4,21 +4,18 @@ const DisplayEvents = function(){
 
 }
 
-DisplayEvents.prototype.renderInternal = function (incomingEvents) {
-
-  var events = removeEventsBeforeToday(incomingEvents);
-
+const createInternalEventsTable = function(events){
   const target = document.querySelector('.internalinfo');
   target.innerText = "";
-  var table = document.createElement('table');
+  const table = document.createElement('table');
   var tabletitles =document.createElement('tr');
   var tabletitle1 = document.createElement('th');
-  tabletitle1.innerText = "Day";
   var tabletitle2 = document.createElement('th');
-  tabletitle2.innerText = "Event";
   var tabletitle3 = document.createElement('th');
-  tabletitle3.innerText = "Organiser";
   var tabletitle4 = document.createElement('th');
+  tabletitle1.innerText = "Day";
+  tabletitle2.innerText = "Event";
+  tabletitle3.innerText = "Organiser";
   tabletitle4.innerText = "Time";
 
   tabletitles.appendChild(tabletitle1);
@@ -26,7 +23,6 @@ DisplayEvents.prototype.renderInternal = function (incomingEvents) {
   tabletitles.appendChild(tabletitle3);
   tabletitles.appendChild(tabletitle4);
   table.appendChild(tabletitles);
-
 
   events.forEach(function(event){
     var tr = document.createElement('tr');
@@ -54,20 +50,20 @@ DisplayEvents.prototype.renderInternal = function (incomingEvents) {
   });
 
   target.appendChild(table);
-};
+}
 
-DisplayEvents.prototype.render = function (info) {
+const createExternalEventsTable = function(info){
   const target = document.querySelector('.techinfo');
   target.innerText = "";
   var table = document.createElement('table');
   var tabletitles =document.createElement('tr');
   var tabletitle1 = document.createElement('th');
-  tabletitle1.innerText = "Day";
   var tabletitle2 = document.createElement('th');
-  tabletitle2.innerText = "Event";
   var tabletitle3 = document.createElement('th');
-  tabletitle3.innerText = "Venue";
   var tabletitle4 = document.createElement('th');
+  tabletitle1.innerText = "Day";
+  tabletitle2.innerText = "Event";
+  tabletitle3.innerText = "Venue";
   tabletitle4.innerText = "Time";
   tabletitles.appendChild(tabletitle1);
   tabletitles.appendChild(tabletitle2);
@@ -76,17 +72,15 @@ DisplayEvents.prototype.render = function (info) {
   table.appendChild(tabletitles);
 
   for (counter = 0; counter < 8; counter++){
-      var tr = document.createElement('tr');
-      var td1 = document.createElement('td');
-      var td2 = document.createElement('td');
-      var td3 = document.createElement('td');
-      var td4 = document.createElement('td');
-      var a = document.createElement('a');
-
+    var tr = document.createElement('tr');
+    var td1 = document.createElement('td');
+    var td2 = document.createElement('td');
+    var td3 = document.createElement('td');
+    var td4 = document.createElement('td');
+    var a = document.createElement('a');
     var day = info.data[counter].start.rfc2882local;
     var daysub = day.substring(0, 12);
     var date = info.data[counter].start.daylocal;
-    // var dateday = date + " " + daysub;
     var name = info.data[counter].summaryDisplay;
     var namesub = name.substring(0, namechop(name));
     var venue ="TBA";
@@ -111,10 +105,11 @@ DisplayEvents.prototype.render = function (info) {
     venueButton.innerText = venue;
     venueButton.addEventListener('click', venuePopUp);
     venueButton.value = [venuelat, venuelng];
-
+    
     a.href = info.data[counter].siteurl;
     a.target = "_blank"
     a.innerHTML = namesub;
+
     td1.innerText = daysub;
     td2.appendChild(a);
     td3.appendChild(venueButton);
@@ -126,14 +121,25 @@ DisplayEvents.prototype.render = function (info) {
     table.appendChild(tr);
   }
   target.appendChild(table);
+}
+
+DisplayEvents.prototype.renderInternal = function (incomingEvents) {
+  var events = removeEventsBeforeToday(incomingEvents);
+  createInternalEventsTable(events);
+};
+
+DisplayEvents.prototype.render = function (incomingApiInfo) {
+  var info = incomingApiInfo;
+  createExternalEventsTable(info);
 };
 
 
 var venuePopUp = function(){
   var mapPopupDiv = document.querySelector("#mappopup_bg");
-  mapPopupDiv.style.display = 'block';
   var mapDiv = document.querySelector('#mapPopUpMain');
+  mapPopupDiv.style.display = 'block';
   var incomingString = this.value;
+
   if (incomingString == ",") {
     mapDiv.innerText = "This event does not have a venue yet :(" }
     else {
@@ -145,7 +151,6 @@ var venuePopUp = function(){
       var mainMap = new MapWrapper(mapDiv, center, 16);
       mainMap.addMarker(center);
     }
-
   }
 
   var namechop = function(string){
