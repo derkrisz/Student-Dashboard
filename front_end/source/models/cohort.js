@@ -1,10 +1,11 @@
-const Cohort = function(name, start_date, teachers, xmas){
+const Cohort = function(name, start_date, teachers, xmas, homework_link){
   this.name = name;
   this.start_date = start_date;
   this.teachers = teachers;
   this.syllabus= "";
   this.week = 1;
   this.break = xmas;
+  this.homework_link = homework_link;
   this.setNoOfWeeks();
 }
 
