@@ -41,6 +41,8 @@ const closeMap = function(){
 
 const pubMapPopup = function(){
 console.log("pubs clicked");
+  var pubPopup = document.querySelector('#mappopup_bg');
+  pubPopup.style.display = 'block';
 }
 
 const app = function() {
