@@ -15,7 +15,7 @@ A place for students to access daily and weekly information - what the syllabus 
   - And any other extensions…
 
 ### Prerequisites:
-  After pulling the project down to the local directory, install all front-end and back-end packages from the npm package manager.
+  After pulling the project down to the local directory, install all front-end and back-end packages with the npm package manager.
   ```
   npm install
   ```
