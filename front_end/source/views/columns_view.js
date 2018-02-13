@@ -1,12 +1,12 @@
 const ColumnConstruct = function(){
-  
+
 }
 
 ColumnConstruct.prototype.renderColumn = function(cohortsObject, syllabus){
 
   cohortsObject.cohortsArray.forEach(function(cohort, index){
     index ++;
-    const cohortName = document.querySelector(`.coh${index}`)
+    const cohortName = document.querySelector(`.cohort_name${index}`)
     cohortName.innerText = cohort.name;
     const day1 = document.querySelector(`.Mon${index}`);
     const day2 = document.querySelector(`.Tue${index}`);

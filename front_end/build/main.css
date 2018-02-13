@@ -144,7 +144,7 @@ height: auto;
   border-bottom: 2px dashed white;
 }
 
-.button {
+button {
   text-align: center;
 }
 
@@ -176,6 +176,15 @@ button:hover {
   text-decoration: none;
 }
 
+#homework_button {
+  width: auto;
+  font-size: 17px
+}
+
+
+#cohorts p {
+  margin-bottom: 0px;
+}
 
 #popup_bg {
   position: fixed;
