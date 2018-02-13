@@ -101,13 +101,11 @@ DisplayEvents.prototype.render = function (info) {
       var timestart = info.data[counter].start.hourtimezone + ":" + info.data[counter].start.minutetimezone;
       var timeend = info.data[counter].end.hourtimezone + ":" + info.data[counter].end.minutetimezone;
       var totaltime = `${timestart} - ${timeend}`;
-      console.log(venuelat);
-      console.log(venuelng);
+
       const venueButton = document.createElement('button');
       venueButton.innerText = venue;
       venueButton.addEventListener('click', VenuePopUp);
       venueButton.value = [venuelat, venuelng];
-      console.log('the value of venuebutton is:', venueButton.value);
 
 
       a.href = info.data[counter].siteurl;
@@ -133,17 +131,21 @@ DisplayEvents.prototype.render = function (info) {
 };
 
 var VenuePopUp = function(){
-  console.log(this.value);
-  console.log('venuebutton clicked');
   var mapPopupDiv = document.querySelector("#mappopup_bg");
   mapPopupDiv.style.display = 'block';
-  // console.log("Inside function"+ lat1);
-  // var mapDiv = document.querySelector('#mapPopUpMain');
-  // var center = { lat: 55.9470, lng: -3.2020 };
-  // var center = { lat: `${lat1}`, lng: `${lng1}` };
-  // var mainMap = new MapWrapper(mapDiv, center, 16);
-  // mainMap.addMarker(center);
-  // mapDiv.appendChild(mainMap);
+  var mapDiv = document.querySelector('#mapPopUpMain');
+  var incomingString = this.value;
+  if (incomingString == ",") {
+    mapDiv.innerText = "This event does not have a venue yet :(" }
+  else {
+  var lat = incomingString.substring(0, venuechop(incomingString));
+  var lng = incomingString.substring(venuechop(incomingString)+1 , incomingString.length);
+  var latNum = Number(lat);
+  var lngNum = Number(lng);
+  var center = { lat: latNum, lng: lngNum };
+  var mainMap = new MapWrapper(mapDiv, center, 16);
+  mainMap.addMarker(center);
+}
 
 }
 
@@ -155,6 +157,7 @@ var namechop = function(string){
     return string.indexOf(":");
   }
 };
+
 var venuechop = function(string){
   if (string.indexOf(",") == -1) {
     return string.length}
@@ -162,4 +165,6 @@ var venuechop = function(string){
     return string.indexOf(",");
   }
 };
+
+
 module.exports = DisplayEvents;

@@ -331,7 +331,12 @@ button:hover {
   font-weight: bold;
 }
 
-#popup_title {
+#mapPopUpMain {
+  height: 450px;
+  width: 800px;
+}
+
+#popup_title , #mappopup_title{
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
   width: 790px;
@@ -340,6 +345,7 @@ button:hover {
   text-align: center;
   background-color:#9BD4EF;
   margin-top: 0px;
+  margin-bottom: 0px;
   padding: 5px;
   border-bottom: 2px solid #2EA8E1;
   position: fixed;
