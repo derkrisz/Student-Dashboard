@@ -34,13 +34,20 @@ const closePopup = function(){
   popupDiv.style.display = 'none';
 }
 
+const closeMap = function(){
+  var mapPopUp = document.querySelector("#mappopup_bg");
+  mapPopUp.style.display = 'none';
+}
+
 const app = function() {
   const syllabusButton = document.querySelector('#full-details');
   const closeSyllabusClicked = document.querySelector("#close_popup");
+  const closeMapClicked = document.querySelector("#close_mappopup");
   const pdaButton = document.querySelector('#PDA');
   pdaButton.addEventListener('click', pdaButtonClicked);
   syllabusButton.addEventListener('click', syllabusButtonClicked);
   closeSyllabusClicked.addEventListener('click', closePopup);
+  closeMapClicked.addEventListener('click', closeMap);
 
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
