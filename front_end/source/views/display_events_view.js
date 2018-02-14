@@ -44,6 +44,7 @@ DisplayEvents.prototype.createInternalEventsTable = function(events){
 
 
 DisplayEvents.prototype.populateInternalTable = function(table, events){
+  console.log(events);
   events.forEach(function(event){
     let tr = document.createElement('tr');
     let td1 = document.createElement('td');
@@ -190,14 +191,17 @@ let titleChop = function(string){
     };
 
     let removeEventsBeforeToday = function(events){
-      var returnedEvents = [];
-      var now = new Date();
-      events.forEach(function(event){
-        if (event.end_time > now){
-          returnedEvents.push(event)
-        }
-      })
-      return returnedEvents;
+      // var returnedEvents = [];
+      // var now = new Date();
+      // console.log("now =",now)
+      // events.forEach(function(event){
+      //   console.log(event);
+      //   if (event.end_time > now){
+      //     returnedEvents.push(event)
+      //   }
+      // })
+      // return returnedEvents;
+      return events;
     }
 
     module.exports = DisplayEvents;

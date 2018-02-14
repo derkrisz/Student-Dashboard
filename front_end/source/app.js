@@ -5,19 +5,20 @@ const MapWrapper = require('./services/mapWrapper.js');
 const DateView = require('./views/date_view');
 const DisplayEvents = require('./views/display_events_view.js');
 const Cohorts = require('./models/cohorts.js');
-const Event = require('./models/event.js');
-const Events = require('./models/events.js');
+// const Event = require('./models/event.js');
+// const Events = require('./models/events.js');
 const MapPopUp = require('./views/map_popup_view.js')
 const _ = require('lodash');
 
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const externalEventsRequest = new Request('http://localhost:3000/api/events');
+const internalEventRequest = new Request('http://localhost:5000/api/events/');
 const fullSyllabus = new FullSyllabus();
 const displayEvents = new DisplayEvents();
 const columnConstruct = new ColumnView();
 const dateView = new DateView();
 const cohorts = new Cohorts();
-const events = new Events();
+// const events = new Events();
 const mapPopUp = new MapPopUp();
 
 
@@ -63,6 +64,7 @@ const displayEventsTech = function(info){
 };
 
 const displayEventsInternal = function(events){
+  console.log(events);
   displayEvents.renderInternal(events);
 };
 
@@ -82,9 +84,11 @@ const app = function() {
   syllabusRequest.get(getFullSyllabusComplete);
   syllabusRequest.get(allColumnsConstructed);
   externalEventsRequest.get(displayEventsTech);
+
+  internalEventRequest.get(displayEventsInternal);
   dateView.dynamicDate();
-  events.populate();
-  displayEventsInternal(events.events);
+  // events.populate();
+  // displayEventsInternal(events.events);
 };
 
 document.addEventListener("DOMContentLoaded", app);
