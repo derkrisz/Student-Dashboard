@@ -13,7 +13,7 @@ DisplayEvents.prototype.renderExternal = function (incomingApiInfo) {
   let info = incomingApiInfo;
   this.createExternalEventsTable(info);
 };
-
+ 
 DisplayEvents.prototype.createTable = function(col1, col2, col3, col4){
   const table = document.createElement('table');
   let tabletitles =document.createElement('tr');
@@ -191,17 +191,17 @@ let titleChop = function(string){
     };
 
     let removeEventsBeforeToday = function(events){
-      // var returnedEvents = [];
-      // var now = new Date();
-      // console.log("now =",now)
-      // events.forEach(function(event){
-      //   console.log(event);
-      //   if (event.end_time > now){
-      //     returnedEvents.push(event)
-      //   }
-      // })
-      // return returnedEvents;
-      return events;
+      let returnedEvents = [];
+      let now = new Date();
+      console.log("now =",now)
+      console.log(events[0].end_time);
+      events.forEach(function(event){
+        console.log(event);
+        if (event.end_time> now.toISOString()){
+          returnedEvents.push(event)
+        }
+      })
+      return returnedEvents;
     }
 
     module.exports = DisplayEvents;
