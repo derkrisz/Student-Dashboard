@@ -127,16 +127,6 @@ body {
   border-radius: 15px;
 }
 
-/* #internalinfo > table {
-  border-collapse: collapse;
-  border-spacing: 10px;
-}
-
-#internalinfo > td {
-    padding-top: .5em;
-    padding-bottom: .5em;
-} */
-
 #nav_bar {
 height: auto;
   list-style: none;
@@ -302,11 +292,6 @@ button:hover:enabled {
   margin-right: 15px;
 }
 
-/* .internalinfo { */
-  /* width: 500px; */
-  /* height: 500px; */
-/* } */
-
 #mappopup_bg {
   position: fixed;
   top: 0;
@@ -329,7 +314,6 @@ button:hover:enabled {
   margin-left: -400px;
   margin-top: -250px;
   overflow-y:scroll;
-    /* z-index:10; */
 }
 
 #close_mappopup {
