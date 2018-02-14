@@ -4,18 +4,17 @@ const DisplayEvents = function(){
 
 }
 
-
 DisplayEvents.prototype.renderInternal = function (incomingEvents) {
   var events = removeEventsBeforeToday(incomingEvents);
-  createInternalEventsTable(events);
+  this.createInternalEventsTable(events);
 };
 
 DisplayEvents.prototype.renderExternal = function (incomingApiInfo) {
   var info = incomingApiInfo;
-  createExternalEventsTable(info);
+  this.createExternalEventsTable(info);
 };
 
-const createTable = function(col1, col2, col3, col4){
+DisplayEvents.prototype.createTable = function(col1, col2, col3, col4){
   const table = document.createElement('table');
   let tabletitles =document.createElement('tr');
   let tabletitle1 = document.createElement('th');
@@ -35,12 +34,16 @@ const createTable = function(col1, col2, col3, col4){
   return table;
 }
 
-const createInternalEventsTable = function(events){
+
+DisplayEvents.prototype.createInternalEventsTable = function(events){
   const target = document.querySelector('.internalinfo');
-  target.innerText = "";
-  let table =createTable("Day", "Event", "Organiser", "Time")
+  let table = this.createTable("Day", "Event", "Organiser", "Time")
+  table = this.populateInternalTable(table, events);
+  target.appendChild(table);
+}
 
 
+DisplayEvents.prototype.populateInternalTable = function(table, events){
   events.forEach(function(event){
     var tr = document.createElement('tr');
     var td1 = document.createElement('td');
@@ -49,6 +52,7 @@ const createInternalEventsTable = function(events){
     var td4 = document.createElement('td');
     var a = document.createElement('a');
     var a1 = document.createElement('a');
+
     a.href = event.title_url;
     a.target = "_blank"
     a.innerHTML = `${event.title_type} : ${event.title}`;
@@ -65,17 +69,13 @@ const createInternalEventsTable = function(events){
     tr.appendChild(td4);
     table.appendChild(tr);
   });
-
-  target.appendChild(table);
+    return table;
 }
 
-const createExternalEventsTable = function(info){
+DisplayEvents.prototype.createExternalEventsTable = function(info){
   const target = document.querySelector('.techinfo');
-  target.innerText = "";
 
-  let table = createTable("Day", "Event", "Venue", "Time")
-
-
+  let table = this.createTable("Day", "Event", "Venue", "Time")
 
   for (counter = 0; counter < 8; counter++){
     var tr = document.createElement('tr');
@@ -84,6 +84,7 @@ const createExternalEventsTable = function(info){
     var td3 = document.createElement('td');
     var td4 = document.createElement('td');
     var a = document.createElement('a');
+
     var day = info.data[counter].start.rfc2882local;
     var daysub = day.substring(0, 12);
     var date = info.data[counter].start.daylocal;
@@ -113,8 +114,6 @@ const createExternalEventsTable = function(info){
     venueButton.id = "table_button"
     venueButton.innerText = venue;
 
-
-
     venueButton.addEventListener('click', venuePopUp);
     if (venue === "TBA"){venueButton.disabled = 'true';
 
@@ -126,9 +125,6 @@ const createExternalEventsTable = function(info){
     a.href = info.data[counter].siteurl;
     a.target = "_blank"
     a.innerHTML = namesub;
-
-
-
 
     td1.innerText = daysub;
     td2.appendChild(a);
