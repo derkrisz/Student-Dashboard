@@ -1,3 +1,5 @@
+
+
 use codeclan_dashboard;
 
 db.dropDatabase();
@@ -177,4 +179,74 @@ db.syllabus.insert({
   day3: "Project",
   day4: "Project",
   day5: "GRADUATION"
+});
+
+db.events.insert({
+  title: "Float",
+  title_type: "Lunch Time Talk",
+  title_url: 'https://floatapp.com/',
+  organiser: "Emily",
+  organiser_email: 'mailto:emily.milne@codeclan.com',
+  start_time: new Date(2018, 1, 9, 12 , 0),
+  end_time: new Date(2018, 1, 9, 13 , 0),
+  total_time: "12:00 - 13:00",
+  cancelled: false,
+  timezone: "Europe/London",
+  day: "Fri, 9 Feb"
+});
+
+db.events.insert({
+  title: "E17",
+  title_type: "Speed Networking",
+  title_url: 'https://codeclan.com/employers/partners/',
+  organiser: "Kim",
+  organiser_email:'mailto:kim.watson@codeclan.com',
+  start_time: new Date(2018, 1, 16, 10 , 0),
+  end_time: new Date(2018, 1, 16, 14 , 0),
+  total_time: "10.00 - 14.30",
+  cancelled: false,
+  timezone: "Europe/London",
+  day: "Fri, 16 Feb"
+});
+
+db.events.insert({
+  title: "Edinburgh",
+  title_type: "Codebar",
+  title_url: 'https://codebar.io/edinburgh',
+  organiser: "Emily",
+  organiser_email: 'mailto:emily.milne@codeclan.com',
+  start_time: new Date(2018, 1, 21, 18 , 0),
+  end_time: new Date(2018, 1, 21, 20 , 30),
+  total_time: "18.00 - 20.30" ,
+  cancelled: false,
+  timezone: "Europe/London",
+  day: "Wed, 21 Feb"
+});
+
+db.events.insert({
+  title: "Symphonic",
+  title_type: "Lunch Time Talk",
+  title_url: 'http://www.symphonicsoft.com/',
+  organiser: "Emily",
+  organiser_email: 'mailto:emily.milne@codeclan.com',
+  start_time: new Date(2018, 2, 01, 12 , 30),
+  end_time: new Date(2018, 2, 01, 13 , 0),
+  total_time: "12.30 - 13.00",
+  cancelled: false,
+  timezone: "Europe/London",
+  day: "Thur, 01 Mar"
+});
+
+db.events.insert({
+  title: "E17",
+  title_type: "Graduation",
+  title_url: 'https://www.youtube.com/watch?v=HEXWRTEbj1I',
+  organiser: "Melinda",
+  organiser_email: 'mailto:melinda.matthews@codeclan.com',
+  start_time: new Date(2018, 2, 02, 16 , 0),
+  end_time: new Date(2018, 2, 02, 17 , 0),
+  total_time: "16.00 - 17.00",
+  cancelled: false,
+  timezone: "Europe/London",
+  day: "Fri, 02 Mar"
 });

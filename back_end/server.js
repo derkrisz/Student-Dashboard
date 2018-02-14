@@ -29,6 +29,17 @@ const db = client.db("codeclan_dashboard");
     })
   });
 
+  server.get('/api/events', function(req, res){
+    db.collection('events').find().toArray(function(err, results){
+      if (err) {
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+      res.json(results);
+      console.log("API call success");
+    })
+  });
 
   server.listen(5000, function() {
     console.log('Listening on port 5000');
