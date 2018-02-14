@@ -57,16 +57,8 @@ const getFullSyllabusComplete = function(allSyllabus){
   });
 };
 
-// const comparator = function(obj1, obj2){
-//   return (obj1.summaryDisplay === obj2.summaryDisplay)
-// }
-
-// obj1.start.timestamp
-
 const displayEventsTech = function(info){
-  // console.log(info);
   let infoParsed = _.uniqBy(info.data, obj => [obj.summaryDisplay, obj.start.timestamp].join());
-
   displayEvents.renderExternal(infoParsed);
 };
 
