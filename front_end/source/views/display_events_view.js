@@ -35,43 +35,44 @@ DisplayEvents.prototype.createTable = function(col1, col2, col3, col4){
 }
 
 DisplayEvents.prototype.createInternalEventsTable = function(events){
-  const target = document.querySelector('.internalinfo');
+  const tableDiv = document.querySelector('.internalinfo');
   let table = this.createTable("Day", "Event", "Organiser", "Time")
   table = this.populateInternalTable(table, events);
-  target.appendChild(table);
+  tableDiv.appendChild(table);
 }
 
 DisplayEvents.prototype.populateInternalTable = function(table, events){
   events.forEach(function(event){
-    let tr = document.createElement('tr');
-    let td1 = document.createElement('td');
-    let td2 = document.createElement('td');
-    let td3 = document.createElement('td');
-    let td4 = document.createElement('td');
+    let tableRow = document.createElement('tr');
+    let dateData = document.createElement('td');
+    let titleData = document.createElement('td');
+    let organiserData = document.createElement('td');
+    let timeData = document.createElement('td');
     let titleAnchor = document.createElement('a');
     let organiserAnchor = document.createElement('a');
 
-    td1.innerText = event.day;
+    dateData.innerText = event.day;
     titleAnchor.href = event.title_url;
     titleAnchor.target = "_blank";
     titleAnchor.innerHTML = `${event.title_type} : ${event.title}`;
-    td2.appendChild(titleAnchor);
+    titleData.appendChild(titleAnchor);
     organiserAnchor.href = event.organiser_email;
     organiserAnchor.innerHTML = `${event.organiser}`;
-    td3.appendChild(organiserAnchor);
-    td4.innerText = event.total_time;
+    organiserData.appendChild(organiserAnchor);
+    timeData.innerText = event.total_time;
+    cancellationCheck(event, timeData);
 
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
-    table.appendChild(tr);
+    tableRow.appendChild(dateData);
+    tableRow.appendChild(titleData);
+    tableRow.appendChild(organiserData);
+    tableRow.appendChild(timeData);
+    table.appendChild(tableRow);
   });
   return table;
 }
 
 DisplayEvents.prototype.createExternalEventsTable = function(info){
-  const target = document.querySelector('.techinfo');
+  const tableDiv = document.querySelector('.techinfo');
   let table = this.createTable("Day", "Event", "Venue", "Time")
 
   for (counter = 0; counter < 8; counter++){
@@ -95,11 +96,12 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
 
     dateData.innerText = choppedDate;
     titleAnchor.href = info[counter].siteurl;
-    titleAnchor.target = "_blank"
+    titleAnchor.target = "_blank";
     titleAnchor.innerHTML = choppedTitle;
     titleData.appendChild(titleAnchor);
     venueData.appendChild(venueButton);
     timeData.innerText = totalTime;
+    cancellationCheck(info[counter], timeData);
     tableRow.appendChild(dateData);
     tableRow.appendChild(titleData);
     tableRow.appendChild(venueData);
@@ -107,7 +109,7 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
 
     table.appendChild(tableRow);
   }
-  target.appendChild(table);
+  tableDiv.appendChild(table);
 }
 
 DisplayEvents.prototype.createVenueButton = function(venueInfo) {
@@ -192,5 +194,11 @@ let removeEventsBeforeToday = function(events){
   })
     return returnedEvents;
 }
+
+let cancellationCheck = function(infoElement, container){
+  if (infoElement.cancelled == true){
+    return container.innerText = "Cancelled";
+  }
+};
 
 module.exports = DisplayEvents;
