@@ -93,34 +93,20 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
     let title = info.data[counter].summaryDisplay;
     let choppedTitle = title.substring(0, titleChop(title));
 
-    let venue;
-    let venuelat;
-    let venuelng;
-
-    try{
-      const venueFullName =info.data[counter].venue.title
-      venue = venueFullName.substring(0, venuechop(venueFullName));
-      venuelat = info.data[counter].venue.lat;
-      venuelng = info.data[counter].venue.lng;
-    }
-    catch(e){
-      venue ="TBA";
-      venuelat = null;
-      venuelng = null;
-    }
+    let venueInfo = this.getVenueInfo(info);
 
     const venueButton = document.createElement('button');
     venueButton.id = "table_button"
-    venueButton.innerText = venue;
-
+    venueButton.innerText = venueInfo.location;
     venueButton.addEventListener('click', this.venuePopUp);
-    if (venue === "TBA"){
+
+    if (venueInfo.location === "TBA"){
       venueButton.disabled = 'true';
     }
-    venueButton.value = [venuelat, venuelng];
-    venueButton.valuevenue= venue;
-    venueButton.valueLat =venuelat;
-    venueButton.valueLng =venuelng;
+    // venueButton.value = [venueInfo.latitude, venueInfo.longitude];
+    venueButton.valuevenue= venueInfo.location;
+    venueButton.valueLat =venueInfo.latitude;
+    venueButton.valueLng =venueInfo.longitude;
 
     a.href = info.data[counter].siteurl;
     a.target = "_blank"
@@ -138,6 +124,26 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
   }
 
   target.appendChild(table);
+}
+
+DisplayEvents.prototype.getVenueInfo = function(info){
+  let venue;
+  let venuelat;
+  let venuelng;
+
+  try{
+    const venueFullName =info.data[counter].venue.title
+    venue = venueFullName.substring(0, venuechop(venueFullName));
+    venuelat = info.data[counter].venue.lat;
+    venuelng = info.data[counter].venue.lng;
+  }
+  catch(e){
+    venue ="TBA";
+    venuelat = null;
+    venuelng = null;
+  }
+
+  return venueDetails = { location: venue, latitude: venuelat, longitude: venuelng};
 }
 
 DisplayEvents.prototype.formatTime = function(info){
