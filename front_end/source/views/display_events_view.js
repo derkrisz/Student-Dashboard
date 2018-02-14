@@ -78,6 +78,7 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
   let table = this.createTable("Day", "Event", "Venue", "Time")
 
   for (counter = 0; counter < 8; counter++){
+
     let tableRow = document.createElement('tr');
     let dateData = document.createElement('td');
     let titleData = document.createElement('td');
@@ -85,10 +86,10 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
     let timeData = document.createElement('td');
     let titleAnchor = document.createElement('a');
 
-    let date = info.data[counter].start.rfc2882local;
+    let date = info[counter].start.rfc2882local;
     let choppedDate = date.substring(0, 12);
 
-    let title = info.data[counter].summaryDisplay;
+    let title = info[counter].summaryDisplay;
     let choppedTitle = title.substring(0, titleChop(title));
 
     let venueInfo = this.getVenueInfo(info);
@@ -97,7 +98,7 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
     let totalTime = this.formatTime(info)
 
     dateData.innerText = choppedDate;
-    titleAnchor.href = info.data[counter].siteurl;
+    titleAnchor.href = info[counter].siteurl;
     titleAnchor.target = "_blank"
     titleAnchor.innerHTML = choppedTitle;
     titleData.appendChild(titleAnchor);
@@ -107,6 +108,9 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
     tableRow.appendChild(titleData);
     tableRow.appendChild(venueData);
     tableRow.appendChild(timeData);
+
+
+
     table.appendChild(tableRow);
   }
   target.appendChild(table);
@@ -131,10 +135,10 @@ DisplayEvents.prototype.getVenueInfo = function(info){
   let venuelat;
   let venuelng;
   try{
-    const venueFullName =info.data[counter].venue.title
+    const venueFullName = info[counter].venue.title
     venue = venueFullName.substring(0, venuechop(venueFullName));
-    venuelat = info.data[counter].venue.lat;
-    venuelng = info.data[counter].venue.lng;
+    venuelat = info[counter].venue.lat;
+    venuelng = info[counter].venue.lng;
   }
   catch(e){
     venue ="TBA";
@@ -145,8 +149,8 @@ DisplayEvents.prototype.getVenueInfo = function(info){
 }
 
 DisplayEvents.prototype.formatTime = function(info){
-  let timestart = info.data[counter].start.hourtimezone + ":" + info.data[counter].start.minutetimezone;
-  let timeend = info.data[counter].end.hourtimezone + ":" + info.data[counter].end.minutetimezone;
+  let timestart = info[counter].start.hourtimezone + ":" + info[counter].start.minutetimezone;
+  let timeend = info[counter].end.hourtimezone + ":" + info[counter].end.minutetimezone;
   let totaltime = `${timestart} - ${timeend}`;
   return totaltime;
 }
