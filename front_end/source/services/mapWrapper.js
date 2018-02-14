@@ -17,7 +17,6 @@ MapWrapper.prototype.addMarker = function (coords) {
   return marker;
 }
 
-
 MapWrapper.prototype.addClickEvent = function () {
   google.maps.event.addListener(this.googleMap, 'click', function (event) {
     var position = { lat: event.latLng.lat(), lng: event.latLng.lng() }
@@ -27,7 +26,6 @@ MapWrapper.prototype.addClickEvent = function () {
 
 MapWrapper.prototype.addInfoWindow = function (coords, text) {
   var marker = this.addMarker(coords);
-
   marker.addListener('click', function () {
     var infoWindow = new google.maps.InfoWindow({
       content: text
@@ -37,11 +35,9 @@ MapWrapper.prototype.addInfoWindow = function (coords, text) {
 }
 
 MapWrapper.prototype.addInfoBubble = function (marker, text) {
-
     var infoWindow = new google.maps.InfoWindow({
       content: text
     });
-
     infoWindow.open(this.map, marker);
 
 }

@@ -18,34 +18,33 @@ const dateView = new DateView();
 const cohorts = new Cohorts();
 const events = new Events();
 const mapPopUp = new MapPopUp();
-events.populate();
 
 
 const syllabusButtonClicked = function(){
   console.log("button clicked");
   let popupDiv = document.querySelector("#popup_bg");
   popupDiv.style.display = 'block';
-}
+};
 
 const pdaButtonClicked = function(){
   window.open("https://github.com/codeclan/pda");
-}
+};
 
 const closePopup = function(){
   let popupDiv = document.querySelector("#popup_bg");
   popupDiv.style.display = 'none';
-}
+};
 
 const closeMap = function(){
   let mapPopUpDiv = document.querySelector("#mappopup_bg");
   mapPopUpDiv.style.display = 'none';
-}
+};
 
 const pubMapPopup = function(){
   mapPopUp.populateView();
   let pubPopup = document.querySelector('#mappopup_bg');
   pubPopup.style.display = 'block';
-}
+};
 
 const allColumnsConstructed = function(wholeSyllabus){
   cohorts.populate();
@@ -55,7 +54,7 @@ const allColumnsConstructed = function(wholeSyllabus){
 const getFullSyllabusComplete = function(allSyllabus){
   allSyllabus.forEach(function(week){
     fullSyllabus.render(week);
-  })
+  });
 };
 
 const displayEventsTech = function(info){
@@ -64,7 +63,7 @@ const displayEventsTech = function(info){
 
 const displayEventsInternal = function(events){
   displayEvents.renderInternal(events);
-}
+};
 
 const app = function() {
   const syllabusButton = document.querySelector('#full-details');
@@ -83,6 +82,7 @@ const app = function() {
   syllabusRequest.get(allColumnsConstructed);
   externalEventsRequest.get(displayEventsTech);
   dateView.dynamicDate();
+  events.populate();
   displayEventsInternal(events.events);
 };
 
