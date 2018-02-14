@@ -15,26 +15,31 @@ DisplayEvents.prototype.renderExternal = function (incomingApiInfo) {
   createExternalEventsTable(info);
 };
 
-
-const createInternalEventsTable = function(events){
-  const target = document.querySelector('.internalinfo');
-  target.innerText = "";
+const createTable = function(col1, col2, col3, col4){
   const table = document.createElement('table');
-  var tabletitles =document.createElement('tr');
-  var tabletitle1 = document.createElement('th');
+  let tabletitles =document.createElement('tr');
+  let tabletitle1 = document.createElement('th');
   var tabletitle2 = document.createElement('th');
   var tabletitle3 = document.createElement('th');
   var tabletitle4 = document.createElement('th');
-  tabletitle1.innerText = "Day";
-  tabletitle2.innerText = "Event";
-  tabletitle3.innerText = "Organiser";
-  tabletitle4.innerText = "Time";
+  tabletitle1.innerText = col1;
+  tabletitle2.innerText = col2;
+  tabletitle3.innerText = col3;
+  tabletitle4.innerText = col4;
 
   tabletitles.appendChild(tabletitle1);
   tabletitles.appendChild(tabletitle2);
   tabletitles.appendChild(tabletitle3);
   tabletitles.appendChild(tabletitle4);
   table.appendChild(tabletitles);
+  return table;
+}
+
+const createInternalEventsTable = function(events){
+  const target = document.querySelector('.internalinfo');
+  target.innerText = "";
+  let table =createTable("Day", "Event", "Organiser", "Time")
+
 
   events.forEach(function(event){
     var tr = document.createElement('tr');
@@ -68,22 +73,9 @@ const createExternalEventsTable = function(info){
   const target = document.querySelector('.techinfo');
   target.innerText = "";
 
-  var table = document.createElement('table');
-  var tabletitles =document.createElement('tr');
-  var tabletitle1 = document.createElement('th');
-  var tabletitle2 = document.createElement('th');
-  var tabletitle3 = document.createElement('th');
-  var tabletitle4 = document.createElement('th');
-  tabletitle1.innerText = "Day";
-  tabletitle2.innerText = "Event";
-  tabletitle3.innerText = "Venue";
-  tabletitle4.innerText = "Time";
+  let table = createTable("Day", "Event", "Venue", "Time")
 
-  tabletitles.appendChild(tabletitle1);
-  tabletitles.appendChild(tabletitle2);
-  tabletitles.appendChild(tabletitle3);
-  tabletitles.appendChild(tabletitle4);
-  table.appendChild(tabletitles);
+
 
   for (counter = 0; counter < 8; counter++){
     var tr = document.createElement('tr');
@@ -97,17 +89,20 @@ const createExternalEventsTable = function(info){
     var date = info.data[counter].start.daylocal;
     var name = info.data[counter].summaryDisplay;
     var namesub = name.substring(0, namechop(name));
-    var venue ="TBA";
-    var venuelat = null;
-    var venuelng = null;
+    var venue;
+    var venuelat;
+    var venuelng;
 
     try{
-      var venueFullName =info.data[counter].venue.title
+      const venueFullName =info.data[counter].venue.title
       venue = venueFullName.substring(0, venuechop(venueFullName));
       venuelat = info.data[counter].venue.lat;
       venuelng = info.data[counter].venue.lng;
     }
     catch(e){
+      venue ="TBA";
+      venuelat = null;
+      venuelng = null;
     }
 
     var timestart = info.data[counter].start.hourtimezone + ":" + info.data[counter].start.minutetimezone;
@@ -117,7 +112,13 @@ const createExternalEventsTable = function(info){
     const venueButton = document.createElement('button');
     venueButton.id = "table_button"
     venueButton.innerText = venue;
+
+
+
     venueButton.addEventListener('click', venuePopUp);
+    if (venue === "TBA"){venueButton.disabled = 'true';
+
+    }
     venueButton.value = [venuelat, venuelng];
     venueButton.valuevenue= venue;
     venueButton.valueLat =venuelat;
@@ -125,6 +126,9 @@ const createExternalEventsTable = function(info){
     a.href = info.data[counter].siteurl;
     a.target = "_blank"
     a.innerHTML = namesub;
+
+
+
 
     td1.innerText = daysub;
     td2.appendChild(a);
@@ -147,6 +151,8 @@ var venuePopUp = function(){
   var incomingVenue = this.valuevenue;
   var incomingLat = this.valueLat;
   var incomingLng = this.valueLng;
+
+
   mapDiv.innerText = "This event does not have a venue yet :("
   var latNum = Number(incomingLat);
   var lngNum = Number(incomingLng);
@@ -154,6 +160,7 @@ var venuePopUp = function(){
   var mainMap = new MapWrapper(mapDiv, center, 16);
   var bubble =mainMap.addMarker(center);
   mainMap.addInfoBubble(bubble, incomingVenue);
+
 }
 
 
