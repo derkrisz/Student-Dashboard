@@ -10,7 +10,7 @@ DisplayEvents.prototype.renderInternal = function (incomingEvents) {
   createInternalEventsTable(events);
 };
 
-DisplayEvents.prototype.render = function (incomingApiInfo) {
+DisplayEvents.prototype.renderExternal = function (incomingApiInfo) {
   var info = incomingApiInfo;
   createExternalEventsTable(info);
 };
@@ -119,7 +119,9 @@ const createExternalEventsTable = function(info){
     venueButton.innerText = venue;
     venueButton.addEventListener('click', venuePopUp);
     venueButton.value = [venuelat, venuelng];
-
+    venueButton.valuevenue= venue;
+    venueButton.valueLat =venuelat;
+    venueButton.valueLng =venuelng;
     a.href = info.data[counter].siteurl;
     a.target = "_blank"
     a.innerHTML = namesub;
@@ -142,21 +144,18 @@ var venuePopUp = function(){
   var mapPopupDiv = document.querySelector("#mappopup_bg");
   var mapDiv = document.querySelector('#mapPopUpMain');
   mapPopupDiv.style.display = 'block';
-  var incomingString = this.value;
+  var incomingVenue = this.valuevenue;
+  var incomingLat = this.valueLat;
+  var incomingLng = this.valueLng;
+  mapDiv.innerText = "This event does not have a venue yet :("
+  var latNum = Number(incomingLat);
+  var lngNum = Number(incomingLng);
+  var center = { lat: latNum, lng: lngNum };
+  var mainMap = new MapWrapper(mapDiv, center, 16);
+  var bubble =mainMap.addMarker(center);
+  mainMap.addInfoBubble(bubble, incomingVenue);
+}
 
-  if (incomingString == ",") {
-    mapDiv.innerText = "This event does not have a venue yet :(" }
-    else {
-      var lat = incomingString.substring(0, venuechop(incomingString));
-      var lng = incomingString.substring(venuechop(incomingString)+1 , incomingString.length);
-      var latNum = Number(lat);
-      var lngNum = Number(lng);
-      var center = { lat: latNum, lng: lngNum };
-      var mainMap = new MapWrapper(mapDiv, center, 16);
-      var bubble =mainMap.addMarker(center);
-      mainMap.addInfoBubble(bubble, "Here");
-    }
-  }
 
   var namechop = function(string){
     if (string.indexOf(":") == -1) {

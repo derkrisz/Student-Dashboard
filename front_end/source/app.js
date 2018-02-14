@@ -40,9 +40,9 @@ const closeMap = function(){
 }
 
 const pubMapPopup = function(){
-  console.log("pubs clicked");
   var pubPopup = document.querySelector('#mappopup_bg');
   pubPopup.style.display = 'block';
+
   var mapDiv = document.querySelector('#mapPopUpMain');
   var center = { lat: 55.946613, lng: -3.203017 };
   var codeclan = { lat: 55.946962, lng: -3.201958 };
@@ -52,8 +52,8 @@ const pubMapPopup = function(){
   var codeclan1 = mainMap.addMarker(codeclan);
   mainMap.addInfoBubble(pub1, "The Chanter");
   mainMap.addInfoBubble(codeclan1, "CodeClan");
-  infoWindowPub.open(mainMap, codeclan);
-  infoWindowCodeclan.open(mainMap, pub);
+  // mainMap.route({origin: pub, destination: codeclan, travelMode: 'WALKING' })
+
 }
 
 const app = function() {
@@ -90,7 +90,7 @@ const getFullSyllabusComplete = function(allSyllabus){
 };
 
 const displayEventsTech = function(info){
-  displayEvents.render(info);
+  displayEvents.renderExternal(info);
 };
 
 const displayEventsInternal = function(events){
