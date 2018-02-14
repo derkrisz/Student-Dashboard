@@ -160,7 +160,6 @@ DisplayEvents.prototype.venuePopUp = function(){
   let incomingLng = this.valueLng;
 
 
-  mapDiv.innerText = "This event does not have a venue yet :("
   let latNum = Number(incomingLat);
   let lngNum = Number(incomingLng);
   let center = { lat: latNum, lng: lngNum };
