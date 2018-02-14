@@ -1,7 +1,7 @@
 const googleMap = new Request('https://maps.googleapis.com/maps/api/js');
 
 
-var MapWrapper = function (container, coords, zoom) {
+const MapWrapper = function (container, coords, zoom) {
   this.googleMap = new google.maps.Map(container, {
     center: coords,
     zoom: zoom
@@ -9,7 +9,7 @@ var MapWrapper = function (container, coords, zoom) {
 }
 
 MapWrapper.prototype.addMarker = function (coords) {
-  var marker = new google.maps.Marker({
+  let marker = new google.maps.Marker({
     position: coords,
     map: this.googleMap,
     animation: google.maps.Animation.DROP
@@ -19,15 +19,15 @@ MapWrapper.prototype.addMarker = function (coords) {
 
 MapWrapper.prototype.addClickEvent = function () {
   google.maps.event.addListener(this.googleMap, 'click', function (event) {
-    var position = { lat: event.latLng.lat(), lng: event.latLng.lng() }
+    let position = { lat: event.latLng.lat(), lng: event.latLng.lng() }
     this.addMarker(position);
   }.bind(this));
 }
 
 MapWrapper.prototype.addInfoWindow = function (coords, text) {
-  var marker = this.addMarker(coords);
+  let marker = this.addMarker(coords);
   marker.addListener('click', function () {
-    var infoWindow = new google.maps.InfoWindow({
+    let infoWindow = new google.maps.InfoWindow({
       content: text
     });
     infoWindow.open(this.map, marker);
@@ -35,7 +35,7 @@ MapWrapper.prototype.addInfoWindow = function (coords, text) {
 }
 
 MapWrapper.prototype.addInfoBubble = function (marker, text) {
-    var infoWindow = new google.maps.InfoWindow({
+    let infoWindow = new google.maps.InfoWindow({
       content: text
     });
     infoWindow.open(this.map, marker);
@@ -44,7 +44,7 @@ MapWrapper.prototype.addInfoBubble = function (marker, text) {
 
 MapWrapper.prototype.geoLocate = function () {
   navigator.geolocation.getCurrentPosition(function (position) {
-    var center = { lat: position.coords.latitude, lng: position.coords.longitude };
+    let center = { lat: position.coords.latitude, lng: position.coords.longitude };
     this.googleMap.setCenter(center);
     this.addMarker(center);
   }.bind(this));

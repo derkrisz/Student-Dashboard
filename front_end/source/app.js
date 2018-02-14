@@ -61,7 +61,6 @@ const displayEventsTech = function(info){
 };
 
 const displayEventsInternal = function(events){
-  console.log(events);
   displayEvents.renderInternal(events);
 };
 

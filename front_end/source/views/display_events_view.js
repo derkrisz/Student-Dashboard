@@ -13,7 +13,7 @@ DisplayEvents.prototype.renderExternal = function (incomingApiInfo) {
   let info = incomingApiInfo;
   this.createExternalEventsTable(info);
 };
- 
+
 DisplayEvents.prototype.createTable = function(col1, col2, col3, col4){
   const table = document.createElement('table');
   let tabletitles =document.createElement('tr');
@@ -34,7 +34,6 @@ DisplayEvents.prototype.createTable = function(col1, col2, col3, col4){
   return table;
 }
 
-
 DisplayEvents.prototype.createInternalEventsTable = function(events){
   const target = document.querySelector('.internalinfo');
   let table = this.createTable("Day", "Event", "Organiser", "Time")
@@ -42,28 +41,26 @@ DisplayEvents.prototype.createInternalEventsTable = function(events){
   target.appendChild(table);
 }
 
-
 DisplayEvents.prototype.populateInternalTable = function(table, events){
-  console.log(events);
   events.forEach(function(event){
     let tr = document.createElement('tr');
     let td1 = document.createElement('td');
     let td2 = document.createElement('td');
     let td3 = document.createElement('td');
     let td4 = document.createElement('td');
-    let a = document.createElement('a');
-    let a1 = document.createElement('a');
+    let titleAnchor = document.createElement('a');
+    let organiserAnchor = document.createElement('a');
 
-    a.href = event.title_url;
-    a.target = "_blank"
-    a.innerHTML = `${event.title_type} : ${event.title}`;
-    td2.appendChild(a);
-    td1.innerText = event.day
-    a1.href = event.organiser_email;
-    a1.innerHTML = `${event.organiser}`;
-    td3.appendChild(a1);
-
+    td1.innerText = event.day;
+    titleAnchor.href = event.title_url;
+    titleAnchor.target = "_blank";
+    titleAnchor.innerHTML = `${event.title_type} : ${event.title}`;
+    td2.appendChild(titleAnchor);
+    organiserAnchor.href = event.organiser_email;
+    organiserAnchor.innerHTML = `${event.organiser}`;
+    td3.appendChild(organiserAnchor);
     td4.innerText = event.total_time;
+
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
@@ -75,11 +72,9 @@ DisplayEvents.prototype.populateInternalTable = function(table, events){
 
 DisplayEvents.prototype.createExternalEventsTable = function(info){
   const target = document.querySelector('.techinfo');
-
   let table = this.createTable("Day", "Event", "Venue", "Time")
 
   for (counter = 0; counter < 8; counter++){
-
     let tableRow = document.createElement('tr');
     let dateData = document.createElement('td');
     let titleData = document.createElement('td');
@@ -109,8 +104,6 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
     tableRow.appendChild(titleData);
     tableRow.appendChild(venueData);
     tableRow.appendChild(timeData);
-
-
 
     table.appendChild(tableRow);
   }
@@ -163,45 +156,41 @@ DisplayEvents.prototype.venuePopUp = function(){
   let incomingVenue = this.valuevenue;
   let incomingLat = this.valueLat;
   let incomingLng = this.valueLng;
-
-
   let latNum = Number(incomingLat);
   let lngNum = Number(incomingLng);
   let center = { lat: latNum, lng: lngNum };
   let mainMap = new MapWrapper(mapDiv, center, 16);
   let bubble =mainMap.addMarker(center);
   mainMap.addInfoBubble(bubble, incomingVenue);
-
 }
 
 let titleChop = function(string){
   if (string.indexOf(":") == -1) {
-    return string.length}
-    else {
-      return string.indexOf(":");
+    return string.length;
+  }
+  else {
+    return string.indexOf(":");
+  }
+};
+
+let venuechop = function(string){
+  if (string.indexOf(",") == -1) {
+    return string.length;
+  }
+  else {
+    return string.indexOf(",");
+  }
+};
+
+let removeEventsBeforeToday = function(events){
+  let returnedEvents = [];
+  let now = new Date();
+  events.forEach(function(event){
+    if (event.end_time> now.toISOString()){
+      returnedEvents.push(event)
     }
-  };
+  })
+    return returnedEvents;
+}
 
-  let venuechop = function(string){
-    if (string.indexOf(",") == -1) {
-      return string.length}
-      else {
-        return string.indexOf(",");
-      }
-    };
-
-    let removeEventsBeforeToday = function(events){
-      let returnedEvents = [];
-      let now = new Date();
-      console.log("now =",now)
-      console.log(events[0].end_time);
-      events.forEach(function(event){
-        console.log(event);
-        if (event.end_time> now.toISOString()){
-          returnedEvents.push(event)
-        }
-      })
-      return returnedEvents;
-    }
-
-    module.exports = DisplayEvents;
+module.exports = DisplayEvents;
