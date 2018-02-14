@@ -24,7 +24,6 @@ Cohorts.prototype.populate = function () {
 
     this.checkAge();
     this.sortByWeek();
-    console.log(this.cohortsArray);
 
     return this.cohortsArray;
 };

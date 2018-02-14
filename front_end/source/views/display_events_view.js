@@ -5,12 +5,12 @@ const DisplayEvents = function(){
 }
 
 DisplayEvents.prototype.renderInternal = function (incomingEvents) {
-  var events = removeEventsBeforeToday(incomingEvents);
+  let events = removeEventsBeforeToday(incomingEvents);
   this.createInternalEventsTable(events);
 };
 
 DisplayEvents.prototype.renderExternal = function (incomingApiInfo) {
-  var info = incomingApiInfo;
+  let info = incomingApiInfo;
   this.createExternalEventsTable(info);
 };
 
@@ -18,9 +18,9 @@ DisplayEvents.prototype.createTable = function(col1, col2, col3, col4){
   const table = document.createElement('table');
   let tabletitles =document.createElement('tr');
   let tabletitle1 = document.createElement('th');
-  var tabletitle2 = document.createElement('th');
-  var tabletitle3 = document.createElement('th');
-  var tabletitle4 = document.createElement('th');
+  let tabletitle2 = document.createElement('th');
+  let tabletitle3 = document.createElement('th');
+  let tabletitle4 = document.createElement('th');
   tabletitle1.innerText = col1;
   tabletitle2.innerText = col2;
   tabletitle3.innerText = col3;
@@ -45,13 +45,13 @@ DisplayEvents.prototype.createInternalEventsTable = function(events){
 
 DisplayEvents.prototype.populateInternalTable = function(table, events){
   events.forEach(function(event){
-    var tr = document.createElement('tr');
-    var td1 = document.createElement('td');
-    var td2 = document.createElement('td');
-    var td3 = document.createElement('td');
-    var td4 = document.createElement('td');
-    var a = document.createElement('a');
-    var a1 = document.createElement('a');
+    let tr = document.createElement('tr');
+    let td1 = document.createElement('td');
+    let td2 = document.createElement('td');
+    let td3 = document.createElement('td');
+    let td4 = document.createElement('td');
+    let a = document.createElement('a');
+    let a1 = document.createElement('a');
 
     a.href = event.title_url;
     a.target = "_blank"
@@ -95,18 +95,7 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
 
     let venueInfo = this.getVenueInfo(info);
 
-    const venueButton = document.createElement('button');
-    venueButton.id = "table_button"
-    venueButton.innerText = venueInfo.location;
-    venueButton.addEventListener('click', this.venuePopUp);
-
-    if (venueInfo.location === "TBA"){
-      venueButton.disabled = 'true';
-    }
-    // venueButton.value = [venueInfo.latitude, venueInfo.longitude];
-    venueButton.valuevenue= venueInfo.location;
-    venueButton.valueLat =venueInfo.latitude;
-    venueButton.valueLng =venueInfo.longitude;
+    let venueButton = this.createVenueButton(venueInfo);
 
     a.href = info.data[counter].siteurl;
     a.target = "_blank"
@@ -125,6 +114,22 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
 
   target.appendChild(table);
 }
+
+DisplayEvents.prototype.createVenueButton = function(venueInfo) {
+  const venueButton = document.createElement('button');
+  venueButton.id = "table_button"
+  venueButton.innerText = venueInfo.location;
+  venueButton.addEventListener('click', this.venuePopUp);
+
+  if (venueInfo.location === "TBA"){
+    venueButton.disabled = 'true';
+  }
+
+  venueButton.valuevenue= venueInfo.location;
+  venueButton.valueLat =venueInfo.latitude;
+  venueButton.valueLng =venueInfo.longitude;
+  return venueButton;
+};
 
 DisplayEvents.prototype.getVenueInfo = function(info){
   let venue;
@@ -153,7 +158,6 @@ DisplayEvents.prototype.formatTime = function(info){
   return totaltime;
 }
 
-
 DisplayEvents.prototype.venuePopUp = function(){
   let mapPopupDiv = document.querySelector("#mappopup_bg");
   let mapDiv = document.querySelector('#mapPopUpMain');
@@ -173,8 +177,7 @@ DisplayEvents.prototype.venuePopUp = function(){
 
 }
 
-
-  var titleChop = function(string){
+  let titleChop = function(string){
     if (string.indexOf(":") == -1) {
       return string.length}
       else {
@@ -182,7 +185,7 @@ DisplayEvents.prototype.venuePopUp = function(){
       }
     };
 
-  var venuechop = function(string){
+  let venuechop = function(string){
       if (string.indexOf(",") == -1) {
         return string.length}
         else {
@@ -190,7 +193,7 @@ DisplayEvents.prototype.venuePopUp = function(){
         }
       };
 
-  var removeEventsBeforeToday = function(events){
+  let removeEventsBeforeToday = function(events){
         var returnedEvents = [];
         var now = new Date();
         events.forEach(function(event){

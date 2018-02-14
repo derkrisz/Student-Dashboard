@@ -21,7 +21,6 @@ const mapPopUp = new MapPopUp();
 
 
 const syllabusButtonClicked = function(){
-  console.log("button clicked");
   let popupDiv = document.querySelector("#popup_bg");
   popupDiv.style.display = 'block';
 };
