@@ -40,7 +40,7 @@ const closeMap = function(){
 };
 
 const pubMapPopup = function(){
-  mapPopUp.populateView();
+  mapPopUp.calculateRoute();
   let pubPopup = document.querySelector('#mappopup_bg');
   pubPopup.style.display = 'block';
 };
