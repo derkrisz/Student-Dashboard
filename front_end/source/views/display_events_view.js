@@ -69,7 +69,7 @@ DisplayEvents.prototype.populateInternalTable = function(table, events){
     tr.appendChild(td4);
     table.appendChild(tr);
   });
-    return table;
+  return table;
 }
 
 DisplayEvents.prototype.createExternalEventsTable = function(info){
@@ -78,14 +78,12 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
   let table = this.createTable("Day", "Event", "Venue", "Time")
 
   for (counter = 0; counter < 8; counter++){
-    let tr = document.createElement('tr');
-    let td1 = document.createElement('td');
-    let td2 = document.createElement('td');
-    let td3 = document.createElement('td');
-    let td4 = document.createElement('td');
-    let a = document.createElement('a');
-
-    let totalTime = this.formatTime(info)
+    let tableRow = document.createElement('tr');
+    let dateData = document.createElement('td');
+    let titleData = document.createElement('td');
+    let venueData = document.createElement('td');
+    let timeData = document.createElement('td');
+    let titleAnchor = document.createElement('a');
 
     let date = info.data[counter].start.rfc2882local;
     let choppedDate = date.substring(0, 12);
@@ -94,24 +92,23 @@ DisplayEvents.prototype.createExternalEventsTable = function(info){
     let choppedTitle = title.substring(0, titleChop(title));
 
     let venueInfo = this.getVenueInfo(info);
-
     let venueButton = this.createVenueButton(venueInfo);
 
-    a.href = info.data[counter].siteurl;
-    a.target = "_blank"
-    a.innerHTML = choppedTitle;
+    let totalTime = this.formatTime(info)
 
-    td1.innerText = choppedDate;
-    td2.appendChild(a);
-    td3.appendChild(venueButton);
-    td4.innerText = totalTime;
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
-    table.appendChild(tr);
+    dateData.innerText = choppedDate;
+    titleAnchor.href = info.data[counter].siteurl;
+    titleAnchor.target = "_blank"
+    titleAnchor.innerHTML = choppedTitle;
+    titleData.appendChild(titleAnchor);
+    venueData.appendChild(venueButton);
+    timeData.innerText = totalTime;
+    tableRow.appendChild(dateData);
+    tableRow.appendChild(titleData);
+    tableRow.appendChild(venueData);
+    tableRow.appendChild(timeData);
+    table.appendChild(tableRow);
   }
-
   target.appendChild(table);
 }
 
@@ -120,11 +117,9 @@ DisplayEvents.prototype.createVenueButton = function(venueInfo) {
   venueButton.id = "table_button"
   venueButton.innerText = venueInfo.location;
   venueButton.addEventListener('click', this.venuePopUp);
-
   if (venueInfo.location === "TBA"){
     venueButton.disabled = 'true';
   }
-
   venueButton.valuevenue= venueInfo.location;
   venueButton.valueLat =venueInfo.latitude;
   venueButton.valueLng =venueInfo.longitude;
@@ -135,7 +130,6 @@ DisplayEvents.prototype.getVenueInfo = function(info){
   let venue;
   let venuelat;
   let venuelng;
-
   try{
     const venueFullName =info.data[counter].venue.title
     venue = venueFullName.substring(0, venuechop(venueFullName));
@@ -147,7 +141,6 @@ DisplayEvents.prototype.getVenueInfo = function(info){
     venuelat = null;
     venuelng = null;
   }
-
   return venueDetails = { location: venue, latitude: venuelat, longitude: venuelng};
 }
 
@@ -177,31 +170,31 @@ DisplayEvents.prototype.venuePopUp = function(){
 
 }
 
-  let titleChop = function(string){
-    if (string.indexOf(":") == -1) {
+let titleChop = function(string){
+  if (string.indexOf(":") == -1) {
+    return string.length}
+    else {
+      return string.indexOf(":");
+    }
+  };
+
+  let venuechop = function(string){
+    if (string.indexOf(",") == -1) {
       return string.length}
       else {
-        return string.indexOf(":");
+        return string.indexOf(",");
       }
     };
 
-  let venuechop = function(string){
-      if (string.indexOf(",") == -1) {
-        return string.length}
-        else {
-          return string.indexOf(",");
+    let removeEventsBeforeToday = function(events){
+      var returnedEvents = [];
+      var now = new Date();
+      events.forEach(function(event){
+        if (event.end_time > now){
+          returnedEvents.push(event)
         }
-      };
+      })
+      return returnedEvents;
+    }
 
-  let removeEventsBeforeToday = function(events){
-        var returnedEvents = [];
-        var now = new Date();
-        events.forEach(function(event){
-          if (event.end_time > now){
-            returnedEvents.push(event)
-          }
-        })
-        return returnedEvents;
-      }
-
-  module.exports = DisplayEvents;
+    module.exports = DisplayEvents;
