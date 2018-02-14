@@ -8,6 +8,7 @@ const Cohorts = require('./models/cohorts.js');
 const Event = require('./models/event.js');
 const Events = require('./models/events.js');
 const MapPopUp = require('./views/map_popup_view.js')
+const _ = require('lodash');
 
 const syllabusRequest = new Request('http://localhost:5000/api/syllabus/');
 const externalEventsRequest = new Request('http://localhost:3000/api/events');
@@ -56,8 +57,17 @@ const getFullSyllabusComplete = function(allSyllabus){
   });
 };
 
+// const comparator = function(obj1, obj2){
+//   return (obj1.summaryDisplay === obj2.summaryDisplay)
+// }
+
+// obj1.start.timestamp
+
 const displayEventsTech = function(info){
-  displayEvents.renderExternal(info);
+  // console.log(info);
+  let infoParsed = _.uniqBy(info.data, obj => [obj.summaryDisplay, obj.start.timestamp].join());
+
+  displayEvents.renderExternal(infoParsed);
 };
 
 const displayEventsInternal = function(events){
