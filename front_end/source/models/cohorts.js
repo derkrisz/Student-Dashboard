@@ -10,11 +10,11 @@ Cohorts.prototype.populate = function () {
     var teachers2 =["Craig", "Zsolt", "John"];
     var teachers3 = ["Darren", "Finn", "Jarrod"];
 
-    cohort1 = new Cohort("E17", new Date(2017, 9, 30), teachers1, true, "https://docs.google.com/forms/d/e/1FAIpQLSd0pVHemq7NOwRcKnMCuDND1m9GB1xQqfT_0KipE_6wd-FECw/viewform");
-    cohort2 = new Cohort("E18", new Date(2017, 10, 20), teachers2, true, "https://docs.google.com/forms/d/e/1FAIpQLSfqghB5o61Hjo8y4w-UPAH6Zp7v4HOoxjBLqaMrtqcfk05hzQ/viewform");
-    cohort3 = new Cohort("E19", new Date(2018, 0, 29), teachers3, false, "https://docs.google.com/forms/d/e/1FAIpQLSfBtfnkjDNSKWJu3bG7HmNAr4sv34xr6-kRQl2VYG7AS28KAw/viewform");
-    cohort4 = new Cohort("E20", new Date(2018, 2, 5), teachers1, false, "https://docs.google.com/forms/d/e/1FAIpQLSd0pVHemq7NOwRcKnMCuDND1m9GB1xQqfT_0KipE_6wd-FECw/viewform");
-    cohort5 = new Cohort("E16", new Date(2017, 9, 1), teachers1, true, "https://docs.google.com/forms/d/e/1FAIpQLSd0pVHemq7NOwRcKnMCuDND1m9GB1xQqfT_0KipE_6wd-FECw/viewform");
+    cohort1 = new Cohort("E17", new Date(2017, 9, 30, 11, 59), teachers1, true, "https://docs.google.com/forms/d/e/1FAIpQLSd0pVHemq7NOwRcKnMCuDND1m9GB1xQqfT_0KipE_6wd-FECw/viewform");
+    cohort2 = new Cohort("E18", new Date(2017, 10, 20, 11, 59), teachers2, true, "https://docs.google.com/forms/d/e/1FAIpQLSfqghB5o61Hjo8y4w-UPAH6Zp7v4HOoxjBLqaMrtqcfk05hzQ/viewform");
+    cohort3 = new Cohort("E19", new Date(2018, 0, 29, 11, 59), teachers3, false, "https://docs.google.com/forms/d/e/1FAIpQLSfBtfnkjDNSKWJu3bG7HmNAr4sv34xr6-kRQl2VYG7AS28KAw/viewform");
+    cohort4 = new Cohort("E20", new Date(2018, 2, 5, 11, 59), teachers1, false, "https://docs.google.com/forms/d/e/1FAIpQLSd0pVHemq7NOwRcKnMCuDND1m9GB1xQqfT_0KipE_6wd-FECw/viewform");
+    cohort5 = new Cohort("E16", new Date(2017, 9, 1, 11, 59), teachers1, true, "https://docs.google.com/forms/d/e/1FAIpQLSd0pVHemq7NOwRcKnMCuDND1m9GB1xQqfT_0KipE_6wd-FECw/viewform");
 
     this.cohortsArray.push(cohort4);
     this.cohortsArray.push(cohort2);
