@@ -12,7 +12,7 @@ const Cohort = function(name, start_date, teachers, xmas, homework_link){
 Cohort.prototype.setNoOfWeeks = function(){
   var oneWeek = 7*24*60*60*1000;
   var startDate = this.start_date;
-  var currentDate = new Date(2017, 11, 10);
+  var currentDate = new Date();
   var diffWeeks = Math.round(Math.abs((startDate.getTime() - currentDate.getTime())/(oneWeek)));
   if (startDate > currentDate) {
     this.week = 0;
