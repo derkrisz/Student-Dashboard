@@ -195,6 +195,20 @@ db.events.insert({
 
 db.events.insert({
   title: "E17",
+  title_type: "Group project celebrations",
+  title_url: 'https://www.social-squirrel.com/thechanter',
+  organiser: "Everyone!",
+  organiser_email:'mailto:krisztian.der@gmail.com',
+  start_time: new Date(2018, 1, 15, 17, 0),
+  end_time: new Date(2018, 1, 15, 23, 0),
+  total_time: "17.00 - 23.00",
+  cancelled: true,
+  timezone: "Europe/London",
+  day: "Thu, 15 Feb"
+});
+
+db.events.insert({
+  title: "E17",
   title_type: "Speed Networking",
   title_url: 'https://codeclan.com/employers/partners/',
   organiser: "Kim",
@@ -227,7 +241,7 @@ db.events.insert({
   title_url: 'http://www.symphonicsoft.com/',
   organiser: "Emily",
   organiser_email: 'mailto:emily.milne@codeclan.com',
-  start_time: Date(2018, 2, 01, 12, 30),
+  start_time: new Date(2018, 2, 01, 12, 30),
   end_time: new Date(2018, 2, 01, 13, 0),
   total_time: "12.30 - 13.00",
   cancelled: false,
