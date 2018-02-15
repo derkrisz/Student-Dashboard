@@ -162,7 +162,7 @@ DisplayEvents.prototype.venuePopUp = function(){
   let lngNum = Number(incomingLng);
   let center = { lat: latNum, lng: lngNum };
   let mainMap = new MapWrapper(mapDiv, center, 16);
-  let bubble =mainMap.addMarker(center);
+  let bubble = mainMap.addMarker(center);
   mainMap.addInfoBubble(bubble, incomingVenue);
 }
 
