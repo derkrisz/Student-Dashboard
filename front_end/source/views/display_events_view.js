@@ -200,4 +200,4 @@ let titleChop = function(string){
       return returnedEvents;
     }
 
-    module.exports = DisplayEvents;
+module.exports = DisplayEvents;
