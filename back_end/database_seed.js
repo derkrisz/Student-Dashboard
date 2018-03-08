@@ -262,3 +262,17 @@ db.events.insert({
   timezone: "Europe/London",
   day: "Fri, 02 Mar"
 });
+
+db.events.insert({
+  title: "E18",
+  title_type: "Speed Networking",
+  title_url: 'https://www.youtube.com/watch?v=HEXWRTEbj1I',
+  organiser: "Kim",
+  organiser_email: 'mailto:melinda.matthews@codeclan.com',
+  start_time: new Date(2018, 2, 09, 09, 0),
+  end_time: new Date(2018, 2, 09, 17, 0),
+  total_time: "09.00 - 17.00",
+  cancelled: false,
+  timezone: "Europe/London",
+  day: "Fri, 09 Mar"
+});
